@@ -11,11 +11,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 "file:src/main/webapp/WEB-INF/spring/root-context.xml"})
 public class ImgSearchAPITests {
 	@Autowired
-	private static ImgSearchAPIController ImgAPI;
+	private ImgSearchAPIController ImgAPI;
 	
 	@Test
-	public static void result() {
-		
+	public void result() {
 		System.out.println(ImgAPI.result("아따맘마"));
 	}
 }

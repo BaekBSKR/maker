@@ -33,10 +33,23 @@ public class ImgSearchAPIController {
 	    requestHeaders.put("X-Naver-Client-Id", clientId);
 	    requestHeaders.put("X-Naver-Client-Secret", clientSecret);
 	    JSONObject responseBody = get(apiURL,requestHeaders);
-	    JSONArray arrayList = (JSONArray) responseBody.get("items");
-	    JSONObject resultList = (JSONObject) arrayList.get(0);
-	    String imgLink = (String) resultList.get("thumbnail");
-	    return imgLink;
+	    if(responseBody != null) {
+	    	JSONArray arrayList = (JSONArray) responseBody.get("items");
+		    if(arrayList.size() != 0 ) {
+		    	JSONObject resultList = (JSONObject) arrayList.get(0);
+		    	String imgLink = (String) resultList.get("thumbnail");
+			    System.out.println("썸네일 호출");
+			    return imgLink;
+		    } else {
+		    	System.out.println("호출할 썸네일이 없음");
+			    return null;
+		    }
+	    } else {
+	    	System.out.println("호출할 responsebody가 없음");
+	    	return null;
+	    }
+	    
+	    
 	}
 
 
@@ -51,23 +64,26 @@ public class ImgSearchAPIController {
 	        int responseCode = con.getResponseCode();
 	        if (responseCode == HttpURLConnection.HTTP_OK) { // 정상 호출
 	            try {
+	            	System.out.println("JSON 호출");
 					return (JSONObject) new JSONParser().parse(readBody(con.getInputStream()).toString());
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 	        } else { // 오류 발생
-	            try {
-					return (JSONObject) new JSONParser().parse(readBody(con.getErrorStream()).toString());
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+//	            try {
+	            	System.out.println("JSON 호출 중 오류 발생");
+					return null;
+//				} catch (ParseException e) {
+//					e.printStackTrace();
+//				}
 	        }
 	    } catch (IOException e) {
 	        throw new RuntimeException("API 요청과 응답 실패", e);
 	    } finally {
 	        con.disconnect();
 	    }
+	    System.out.println("JSON 호출 실패");
 		return null;
 	}
 

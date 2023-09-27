@@ -19,11 +19,11 @@ import com.maker.vo.MovieVO;
 @Component
 public class MovieAPIController {
 	@Autowired
-	private static MovieService mSvc;
-	@Autowired
-	private static ImgSearchAPIController imgScAPI;
+	private MovieService mSvc;
+//	@Autowired
+//	private ImgSearchAPIController imgScAPI;
 	
-	public static void getMovie() {
+	public void getMovie() {
 		System.out.println("json 호출 시작");
     	String movieInfoUrl = "http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/"
     		+ "search_json2.jsp?collection=kmdb_new2&detail=N&listCount=100"
@@ -106,13 +106,12 @@ public class MovieAPIController {
 				String mRating = (String) movie.get("rating");
 				
 				// 썸네일
-				String mImg = imgScAPI.result(mTitle);
+//				String mImg = imgScAPI.result(mTitle);
 				// 전체 정보
 				if(!mGenre.equals("에로") & !mTitle.isEmpty()
 						& !mDirect.isEmpty() & !mChar.isEmpty()
 						& !mComment.isEmpty() & !mOpen.isEmpty()
-						& !mGenre.isEmpty() & !mRating.isEmpty()
-						) {
+						& !mGenre.isEmpty() & !mRating.isEmpty()) {
 //					System.out.println("영화" + i);
 //					System.out.println("제목 : " + mTitle);
 //					System.out.println("감독 : " + mDirect);
@@ -122,11 +121,11 @@ public class MovieAPIController {
 //					System.out.println("장르 : " + mGenre);
 //					System.out.println("등급 : " + mRating);
 //					System.out.println("====================================");
-//					MovieVO movieVO = new MovieVO(mTitle, mComment,
-//							mDirect, mChar, mOpen, mImg);
-					System.out.println(mImg);
+					MovieVO movieVO = new MovieVO(mTitle, mComment,
+							mDirect, mChar, mOpen);
+					System.out.println(movieVO.toString());
 					System.out.println("====================================");
-//					mSvc.register(movieVO);
+					mSvc.register(movieVO);
 					
 				}
 			}

@@ -19,5 +19,7 @@ public class MovieMapperTests {
 	@Test
 	public void testRead() {
 		
+		System.out.println(mapper.findByTitle("딥워터 엘리게이터"));
+		
 	}
 }
