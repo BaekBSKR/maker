@@ -17,9 +17,9 @@ public class MovieMapperTests {
 	private MovieMapper mapper;
 	
 	@Test
-	public void testRead() {
-		
-		System.out.println(mapper.findByTitle("딥워터 엘리게이터"));
+	public void testModify() {
+		MovieVO movie = new MovieVO(" 기억의 밤", "2");
+		mapper.update(movie);
 		
 	}
 }

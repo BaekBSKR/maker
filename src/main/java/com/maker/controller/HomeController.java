@@ -41,13 +41,7 @@ public class HomeController {
 			
 			@Override
 			public void run() {
-//				try {
 				movieAPI.getMovie();
-//					System.out.println("등록 완료");
-//				}catch(NullPointerException e) {
-//					e.printStackTrace();
-//					System.out.println("등록 실패");
-//				}
 			}
 		};
 		scheduler.scheduleAtFixedRate(task, 0, 1000*60*60*24);

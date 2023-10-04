@@ -11,9 +11,9 @@
   		resultType="long">
   		select seq_movie.nextval from dual
   	</selectKey>
-  	insert into movie(mno, mTitle, mComment, mDirect, mChar, mOpen)
+  	insert into movie(mno, mTitle, mComment, mDirect, mChar, mOpen, mImg)
 	values(seq_movie.nextval, #{mTitle}, #{mComment},
-		#{mDirect}, #{mChar}, #{mOpen})
+		#{mDirect}, #{mChar}, #{mOpen}, #{mImg})
 	</insert>
 	<delete id="delete">
 		delete from board where mno = #{mno}

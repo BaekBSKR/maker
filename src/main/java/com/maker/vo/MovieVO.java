@@ -15,7 +15,10 @@ public class MovieVO {
 	private String mTime;
 	
 	public MovieVO() {}
-	
+	public MovieVO(String mTitle, String mTime) {
+		this.mTitle = mTitle;
+		this.mTime = mTime;
+	}
 	public MovieVO(String mTitle, String mComment,
 			String mDirect,String mChar,String mOpen) {
 		this.mTitle = mTitle;
@@ -23,5 +26,14 @@ public class MovieVO {
 		this.mDirect = mDirect;
 		this.mChar = mChar;
 		this.mOpen = mOpen;
+	}
+	public MovieVO(String mTitle, String mComment,
+			String mDirect,String mChar,String mOpen, String mImg) {
+		this.mTitle = mTitle;
+		this.mComment = mComment;
+		this.mDirect = mDirect;
+		this.mChar = mChar;
+		this.mOpen = mOpen;
+		this.mImg = mImg;
 	}
 }

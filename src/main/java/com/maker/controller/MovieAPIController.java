@@ -20,8 +20,8 @@ import com.maker.vo.MovieVO;
 public class MovieAPIController {
 	@Autowired
 	private MovieService mSvc;
-//	@Autowired
-//	private ImgSearchAPIController imgScAPI;
+	@Autowired
+	private ImgSearchAPIController imgScAPI;
 	
 	public void getMovie() {
 		System.out.println("json 호출 시작");
@@ -106,12 +106,14 @@ public class MovieAPIController {
 				String mRating = (String) movie.get("rating");
 				
 				// 썸네일
-//				String mImg = imgScAPI.result(mTitle);
+				String mImg = imgScAPI.result(mTitle);
+				
 				// 전체 정보
 				if(!mGenre.equals("에로") & !mTitle.isEmpty()
 						& !mDirect.isEmpty() & !mChar.isEmpty()
 						& !mComment.isEmpty() & !mOpen.isEmpty()
-						& !mGenre.isEmpty() & !mRating.isEmpty()) {
+						& !mGenre.isEmpty() & !mRating.isEmpty()
+						& mImg.length() > 10) {
 //					System.out.println("영화" + i);
 //					System.out.println("제목 : " + mTitle);
 //					System.out.println("감독 : " + mDirect);
@@ -122,9 +124,9 @@ public class MovieAPIController {
 //					System.out.println("등급 : " + mRating);
 //					System.out.println("====================================");
 					MovieVO movieVO = new MovieVO(mTitle, mComment,
-							mDirect, mChar, mOpen);
-					System.out.println(movieVO.toString());
-					System.out.println("====================================");
+							mDirect, mChar, mOpen, mImg);
+//					System.out.println(mImg);
+//					System.out.println("====================================");
 					mSvc.register(movieVO);
 					
 				}

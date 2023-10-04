@@ -26,28 +26,33 @@ public class ImgSearchAPIController {
 	    } catch (UnsupportedEncodingException e) {
 	        throw new RuntimeException("검색어 인코딩 실패",e);
 	    }
+	    try {
+	    	String apiURL = "https://openapi.naver.com/v1/search/image.json?query=" + text;
 
-	    String apiURL = "https://openapi.naver.com/v1/search/image.json?query=" + text;
-
-	    Map<String, String> requestHeaders = new HashMap<>();
-	    requestHeaders.put("X-Naver-Client-Id", clientId);
-	    requestHeaders.put("X-Naver-Client-Secret", clientSecret);
-	    JSONObject responseBody = get(apiURL,requestHeaders);
-	    if(responseBody != null) {
-	    	JSONArray arrayList = (JSONArray) responseBody.get("items");
-		    if(arrayList.size() != 0 ) {
-		    	JSONObject resultList = (JSONObject) arrayList.get(0);
-		    	String imgLink = (String) resultList.get("thumbnail");
-			    System.out.println("썸네일 호출");
-			    return imgLink;
+		    Map<String, String> requestHeaders = new HashMap<>();
+		    requestHeaders.put("X-Naver-Client-Id", clientId);
+		    requestHeaders.put("X-Naver-Client-Secret", clientSecret);
+		    JSONObject responseBody = get(apiURL,requestHeaders);
+		    if(responseBody != null) {
+		    	JSONArray arrayList = (JSONArray) responseBody.get("items");
+			    if(arrayList.size() != 0 ) {
+			    	JSONObject resultList = (JSONObject) arrayList.get(0);
+			    	String imgLink = (String) resultList.get("thumbnail");
+				    System.out.println("썸네일 호출");
+				    return imgLink;
+			    } else {
+			    	System.out.println("호출할 썸네일이 없음");
+				    return "";
+			    }
 		    } else {
-		    	System.out.println("호출할 썸네일이 없음");
-			    return null;
+		    	System.out.println("호출할 responsebody가 없음");
+		    	return "";
 		    }
-	    } else {
-	    	System.out.println("호출할 responsebody가 없음");
-	    	return null;
+	    }catch(Exception e) {
+	    	e.printStackTrace();
+	    	return "";
 	    }
+	    
 	    
 	    
 	}
