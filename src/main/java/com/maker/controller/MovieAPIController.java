@@ -76,44 +76,44 @@ public class MovieAPIController {
 				JSONObject movie = (JSONObject) movieList.get(i);
 					
 				// 제목
-				String mTitle = (String) movie.get("title");
+				String m_title = (String) movie.get("title");
 					
 				// 감독
 				JSONObject directors = (JSONObject) movie.get("directors");
 				JSONArray director = (JSONArray) directors.get("director");
 				JSONObject directorDetail = (JSONObject) director.get(0);
-				String mDirect = (String) directorDetail.get("directorNm");
+				String m_direct = (String) directorDetail.get("directorNm");
 					
 				// 배우
 				JSONObject actors = (JSONObject) movie.get("actors");
 				JSONArray actor = (JSONArray) actors.get("actor");
 				JSONObject actorDetail = (JSONObject) actor.get(0);
-				String mChar = (String) actorDetail.get("actorNm");
+				String m_char = (String) actorDetail.get("actorNm");
 					
 				// 줄거리
 				JSONObject plots = (JSONObject) movie.get("plots");
 				JSONArray plot = (JSONArray) plots.get("plot");
 				JSONObject plotDetail = (JSONObject) plot.get(0);
-				String mComment = (String) plotDetail.get("plotText");
+				String m_comment = (String) plotDetail.get("plotText");
 					
 				// 개봉연도
-				String mOpen = (String) movie.get("prodYear");
+				String m_open = (String) movie.get("prodYear");
 				
 				// 장르
-				String mGenre = (String) movie.get("genre");
+				String m_genre = (String) movie.get("genre");
 				
 				// 등급
-				String mRating = (String) movie.get("rating");
+				String m_rating = (String) movie.get("rating");
 				
 				// 썸네일
-				String mImg = imgScAPI.result(mTitle);
+				String m_img = imgScAPI.result(m_title);
 				
 				// 전체 정보
-				if(!mGenre.equals("에로") & !mTitle.isEmpty()
-						& !mDirect.isEmpty() & !mChar.isEmpty()
-						& !mComment.isEmpty() & !mOpen.isEmpty()
-						& !mGenre.isEmpty() & !mRating.isEmpty()
-						& mImg.length() > 10) {
+				if(!m_genre.equals("에로") & !m_title.isEmpty()
+						& !m_direct.isEmpty() & !m_char.isEmpty()
+						& !m_comment.isEmpty() & !m_open.isEmpty()
+						& !m_genre.isEmpty() & !m_rating.isEmpty()
+						& m_img.length() > 10) {
 //					System.out.println("영화" + i);
 //					System.out.println("제목 : " + mTitle);
 //					System.out.println("감독 : " + mDirect);
@@ -123,8 +123,8 @@ public class MovieAPIController {
 //					System.out.println("장르 : " + mGenre);
 //					System.out.println("등급 : " + mRating);
 //					System.out.println("====================================");
-					MovieVO movieVO = new MovieVO(mTitle, mComment,
-							mDirect, mChar, mOpen, mImg);
+					MovieVO movieVO = new MovieVO(m_title, m_comment,
+							m_direct, m_char, m_open, m_img);
 //					System.out.println(mImg);
 //					System.out.println("====================================");
 					mSvc.register(movieVO);

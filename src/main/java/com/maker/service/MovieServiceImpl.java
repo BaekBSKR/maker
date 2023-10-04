@@ -17,7 +17,7 @@ public class MovieServiceImpl implements MovieService {
 	@Transactional
 	@Override
 	public void register(MovieVO movie) {
-		if(mapper.findByTitle(movie.getMTitle())==0) {
+		if(mapper.findByTitle(movie.getM_title())==0) {
 			mapper.insert(movie);
 		} else {
 			System.out.println("이미 존재하는 영화 정보입니다");
@@ -25,15 +25,15 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public MovieVO get(String mTitle) {
+	public MovieVO get(String m_title) {
 		// TODO Auto-generated method stub
-		return mapper.read(mTitle);
+		return mapper.read(m_title);
 	}
 
 	@Override
-	public int remove(String mTitle) {
+	public int remove(String m_title) {
 		// TODO Auto-generated method stub
-		return mapper.delete(mTitle);
+		return mapper.delete(m_title);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public int findByTitle(String mTitle) {
-		return mapper.findByTitle(mTitle);
+	public int findByTitle(String m_title) {
+		return mapper.findByTitle(m_title);
 	}
 }

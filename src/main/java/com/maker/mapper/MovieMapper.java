@@ -6,9 +6,9 @@ import com.maker.vo.MovieVO;
 
 public interface MovieMapper {
 	public List<MovieVO> getList();
-	public MovieVO read(String mTitle);
+	public MovieVO read(String m_title);
 	public void insert(MovieVO movie);
-	public int delete(String mTitle);
+	public int delete(String m_title);
 	public int update(MovieVO movie);
-	public int findByTitle(String mTitle);
+	public int findByTitle(String m_title);
 }

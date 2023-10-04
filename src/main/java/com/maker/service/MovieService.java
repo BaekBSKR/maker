@@ -6,9 +6,9 @@ import com.maker.vo.MovieVO;
 
 public interface MovieService {
 	void register(MovieVO movie);
-	MovieVO get(String mTitle);
+	MovieVO get(String m_title);
 	boolean modify(MovieVO movie);
-	int remove(String mTitle);
+	int remove(String m_title);
 	List<MovieVO> getList();
-	int findByTitle(String mTitle);
+	int findByTitle(String m_title);
 }
