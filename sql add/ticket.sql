@@ -1,8 +1,8 @@
 create table ticket(
     tno number(10),
     sno number(10),
-    mTime varchar2(5),
-    price number,
+    t_time varchar2(20),
+    t_price number,
     mno number(10),
     cno number(10)
 );
@@ -18,7 +18,9 @@ foreign key(mno) references movie(mno);
 
 alter table ticket drop CONSTRAINT fk_ticket;
 
-insert into ticket(tno, sno, mno, cno, mTime,price)
+insert into ticket(tno, sno, mno, cno, t_time,t_price)
 values(seq_ticket.nextval, 35, 1, 1, '10~12', 10000);
-
+/*202309081000*/
 select * from ticket;
+ALTER TABLE ticket MODIFY (t_time VARCHAR2(20));
+commit;
