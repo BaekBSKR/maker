@@ -15,6 +15,6 @@ public class TicketMapperTests {
 
 	@Test
 	public void test1() {
-		mapper.ticketCheck("2023/10/20/18:00", 1);
+		mapper.ticketCheck("2023/10/20/18:00", 1, 1);
 	}
 }

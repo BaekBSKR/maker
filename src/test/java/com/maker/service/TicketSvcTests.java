@@ -16,6 +16,6 @@ public class TicketSvcTests {
 	
 	@Test
 	public void test1() {
-		System.out.println(tSvc.isExistsTicketInfo("2023/10/10/18:00", 1));
+		System.out.println(tSvc.isExistsTicketInfo("2023/10/10/18:00", 1, " "));
 	}
 }

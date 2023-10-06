@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.maker.domain.TicketVO;
+import com.maker.mapper.MovieMapper;
 import com.maker.mapper.TicketMapper;
 
 import lombok.RequiredArgsConstructor;
@@ -15,22 +16,23 @@ import lombok.ToString;
 @ToString
 public class TicketServiceImpl implements TicketService {
 	
-	private final TicketMapper mapper;
+	private final TicketMapper tMapper;
+	private final MovieMapper mMapper;
 	
     public void register(TicketVO ticket) {
-    	mapper.insert(ticket);
+    	tMapper.insert(ticket);
     }
     public List<TicketVO> getList() {
-        return mapper.getList();
+        return tMapper.getList();
     }
     public List<Integer> getSeatList(String t_time){
-    	return mapper.getSeatList(t_time);
+    	return tMapper.getSeatList(t_time);
     }
     //티켓 중복 확인
-    public String isExistsTicketInfo(String t_time, int sno) {
-
+    public String isExistsTicketInfo(String t_time, int sno, String m_title) {
+    	int mno = mMapper.findMnoByTitle(m_title);
         String isExists = "false";
-        if(mapper.ticketCheck(t_time, sno) > 0) {
+        if(tMapper.ticketCheck(t_time, sno, mno) > 0) {
         	isExists = "true";
         }
         return isExists;

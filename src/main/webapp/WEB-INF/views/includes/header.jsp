@@ -58,9 +58,12 @@
 						
 						<li class="nav-item"><a class="nav-link"
 							href="/ticket/ticketBooking">예매하기</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/ticket/ticketList">예매이력</a></li>
 					</ul>
 					<div class="navbar-extra">
-						<a class="btn-theme btn" href="/customer/main">login</a>
+						<a class="btn-theme btn" href="/customer/join">회원가입</a>
+						<a class="btn-theme btn" href="/customer/login">로그인</a>
 					</div>
 				</div>
 			</nav>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.maker.domain.MovieVO;
+import com.maker.domain.PagingVO;
 import com.maker.service.MovieService;
 
 import lombok.RequiredArgsConstructor;
@@ -18,14 +19,30 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/movie/*")
-//@Log4j
+@Log4j
 public class MovieController {
 	@Autowired
 	private MovieService mSvc;
 	
 	@GetMapping("/movielist")
-	public void movielist(Model model) {
+	public void movielist(PagingVO vo, Model model, @RequestParam(value = "nowPage", required = false) String nowPage,
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage) {
+
+		int total = mSvc.countBoard();
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "5";
+		}
+		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+
 		List<MovieVO> movies = mSvc.getview();
+
+		model.addAttribute("paging", vo);
+		model.addAttribute("viewAll", mSvc.selectBoard(vo));
 		model.addAttribute("movies", movies);
 	}
 

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.maker.domain.MovieVO;
+import com.maker.domain.PagingVO;
 import com.maker.mapper.MovieMapper;
 
 import lombok.RequiredArgsConstructor;
@@ -75,4 +76,16 @@ public class MovieServiceImpl implements MovieService {
 		// TODO Auto-generated method stub
 		return mapper.lastview();
 	}
+	@Override
+	public int countBoard() {
+		// TODO Auto-generated method stub
+		return mapper.countBoard();
+	}
+
+	@Override
+	public List<MovieVO> selectBoard(PagingVO vo) {
+		// TODO Auto-generated method stub
+		return mapper.selectBoard(vo);
+	}
 }
+

@@ -12,6 +12,7 @@ public interface TicketMapper {
     void insert(TicketVO ticket);
     int delete(Long tno);
     int update(Long tno);
-    int ticketCheck(@Param("t_time")String t_time, @Param("sno")int sno);
+    int ticketCheck(@Param("t_time")String t_time, @Param("sno")int sno,
+    		@Param("mno")int mno);
     List<Integer> getSeatList(String t_time);
 }

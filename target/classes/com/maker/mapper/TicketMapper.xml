@@ -32,6 +32,9 @@
 	</select>
 	<select id="ticketCheck" resultType="int">
 		select count(*) from ticket 
-		where t_time = #{t_time} and sno = #{sno}
+		where t_time = #{t_time} and sno = #{sno} and mno = #{mno}
+	</select>
+	<select id="getList" resultType="com.maker.domain.TicketVO">
+		select * from ticket from cno = #{cno}
 	</select>
 </mapper>

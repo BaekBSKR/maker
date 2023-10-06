@@ -11,5 +11,5 @@ public interface TicketService {
     List<TicketVO> getList();
     int findByCno(Long cno);
     List<Integer> getSeatList(String t_time);
-    String isExistsTicketInfo(String t_time, int sno);
+    String isExistsTicketInfo(String t_time, int sno, String m_title);
 }

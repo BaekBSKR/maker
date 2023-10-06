@@ -27,6 +27,9 @@
 	<select id="findByTitle" resultType="int">
 		select count(*) from movie where m_title = #{m_title}
 	</select>
+	<select id="findMnoByTitle" resultType="int">
+		select mno from movie where m_title = #{m_title}
+	</select>
 	<select id="getList" resultType="com.maker.domain.MovieVO">
 		select * from movie where m_time > 0
 	</select>
@@ -41,5 +44,20 @@
 	</select>
 	<select id="readview" resultType="com.maker.domain.MovieVO">
 		select * from movie where m_title = #{m_title}
+	</select>
+	<!-- 총 게시글 갯수 출력 -->
+	<select id="countBoard" resultType="int">
+		select count(*) from movie
+	</select>
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectBoard" resultType="com.maker.domain.MovieVO">
+		select * from (
+			select rownum rn, A.* from (
+						select * 
+						from movie 
+						order by mno 
+						) A
+					)
+		where rn between #{start} and #{end}
 	</select>
 </mapper>
