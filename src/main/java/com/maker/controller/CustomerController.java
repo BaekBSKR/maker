@@ -47,7 +47,7 @@ public class CustomerController {
 		customerService.customerJoin(customer);
 		log.info("join Service 성공");
 		
-		return "redirect:/main";
+		return "redirect:/customer/main";
 	}
 		
 	

@@ -14,6 +14,7 @@
 </script>
 </head>
 <body>
+<%@ include file="../includes/header.jsp"%>
 	<div class="wrapper">
 	<form id="join_form" method="post">
 	<div class="wrap">
@@ -79,6 +80,6 @@
 		});
 	});
 </script>
-
+<%@ include file="../includes/footer.jsp"%>
 </body>
 </html>

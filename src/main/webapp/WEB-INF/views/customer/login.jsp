@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/resources/css/customer/login.css">
 </head>
 <body>
+<%@ include file="../includes/header.jsp"%>
 	<div class="wrapper">
 	
 	<div class="wrap">
@@ -34,5 +35,6 @@
 	</div>
 
 </div>
+<%@ include file="../includes/footer.jsp"%>
 </body>
 </html>

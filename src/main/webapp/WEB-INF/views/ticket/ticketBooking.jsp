@@ -137,6 +137,7 @@
 </script>
 </head>
 <body>
+<%@ include file="../includes/header.jsp"%>
     <h1>영화 예매</h1>
     <form action="./ticketSave" method="post">
         <label for="dateTime">날짜</label>
@@ -165,5 +166,6 @@
 	    </div>
         <button type="submit">예매</button>
     </form>
+<%@ include file="../includes/footer.jsp"%>
 </body>
 </html>

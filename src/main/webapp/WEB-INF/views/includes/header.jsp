@@ -53,11 +53,14 @@
 						<li class="nav-item nav-item-arrow-down nav-hover-show-sub">
 						<li class="nav-item"><a class="nav-link"
 							href="/movie/movielist">영화 리스트</a></li>
+						<!-- <li class="nav-item"><a class="nav-link"
+							href="movies-blocks.html">공지사항</a></li>  -->
+						
 						<li class="nav-item"><a class="nav-link"
-							href="movies-blocks.html">공지사항</a></li>
+							href="/ticket/ticketBooking">예매하기</a></li>
 					</ul>
 					<div class="navbar-extra">
-						<a class="btn-theme btn" href="#">login</a>
+						<a class="btn-theme btn" href="/customer/main">login</a>
 					</div>
 				</div>
 			</nav>
