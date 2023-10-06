@@ -52,7 +52,7 @@
 					<ul class="navbar-nav">
 						<li class="nav-item nav-item-arrow-down nav-hover-show-sub">
 						<li class="nav-item"><a class="nav-link"
-							href="/movielist">영화 리스트</a></li>
+							href="/movie/movielist">영화 리스트</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="movies-blocks.html">공지사항</a></li>
 					</ul>

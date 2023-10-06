@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,103 +37,64 @@
 		<div class="d-background bg-black-80"></div>
 		<div class="top-block top-inner container">
 			<div class="top-block-content">
-				<h1 class="section-title">영화</h1>
-				<div class="page-breadcrumbs">
-					<a class="content-link" href="/">홈</a> <span
-						class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
-					<a class="content-link" href="/movielist">영화 리스트</a> <span
-						class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
-					<a class="content-link" href="/movie">영화</a>
-				</div>
+				<c:forEach var="movie" items="${movies}">
+					<h1 class="section-title">영화</h1>
+					<div class="page-breadcrumbs">
+						<a class="content-link" href="/">홈</a> <span
+							class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
+						<a class="content-link" href="movielist">영화 리스트</a> <span
+							class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
+						<a class="content-link"
+							href="/movie/movieinfo?m_title=${movie.m_title}">영화</a>
+					</div>
+				</c:forEach>
 			</div>
 		</div>
 	</section>
+
 	<div class="container">
 		<div class="sidebar-container">
 			<div class="content">
 				<section class="section-long">
-					<div class="section-line">
-						<div class="movie-info-entity">
-							<div class="entity-poster" data-role="hover-wrap">
-								<div class="embed-responsive embed-responsive-poster">
-									<img class="embed-responsive-item"
-										src="http://via.placeholder.com/340x510" alt="" />
-								</div>
-							</div>
-							<div class="entity-content">
-								<h2 class="entity-title">Blick</h2>
-								<div class="entity-info">
-									<div class="info-lines">
-										<div class="info info-short">
-											<span class="text-theme info-icon"><i
-												class="fas fa-star"></i></span> <span class="info-text">8,7</span>
-											<span class="info-rest">/10</span>
-										</div>
-										<div class="info info-short">
-											<span class="text-theme info-icon"><i
-												class="fas fa-clock"></i></span> <span class="info-text">130</span>
-											<span class="info-rest">&nbsp;min</span>
-										</div>
+					<c:forEach var="movie" items="${movies}">
+						<div class="section-line">
+							<div class="movie-info-entity">
+								<div class="entity-poster" data-role="hover-wrap">
+									<div class="embed-responsive embed-responsive-poster">
+										<img class="embed-responsive-item" src="${movie.m_img}" alt="" />
 									</div>
 								</div>
-								<ul class="entity-list">
-									<li><span class="entity-list-title">개봉일:</span>July 21,
-										2014 (Dolby Theatre), August 1, 2014 (United States)</li>
-									<li><span class="entity-list-title">감독:</span> <a
-										class="content-link" href="#">Lindson Wardens</a>, <a
-										class="content-link" href="#">Anabelle One</a></li>
-									<li><span class="entity-list-title">주연:</span> <a
-										class="content-link" href="#">Octopus Wardens</a>, <a
-										class="content-link" href="#">Quanta Wardens</a>, <a
-										class="content-link" href="#">Anabelle Two</a>, <a
-										class="content-link" href="#">Anabelle Three</a></li>
-								</ul>
+								<div class="entity-content">
+									<h1 class="entity-title">${movie.m_title}</h1>
+									<div class="entity-info">
+										<div class="info-lines">
+											<div class="info info-short">
+												<span class="text-theme info-icon"><i
+													class="fas fa-star"></i></span> <span class="info-text">${movie.m_star}</span>
+												<span class="info-rest">/10</span>
+											</div>
+											<div class="info info-short">
+												<span class="text-theme info-icon"><i
+													class="fas fa-clock"></i></span> <span class="info-text">${movie.m_time}</span>
+												<span class="info-rest">min</span>
+											</div>
+										</div>
+									</div>
+									<ul class="entity-list">
+										<li><span class="entity-list-title">개봉년도:</span>${movie.m_open}</li>
+										<li><span class="entity-list-title">감독:</span>${movie.m_direct}</li>
+										<li><span class="entity-list-title">주연:</span>${movie.m_char}</li>
+									</ul>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="section-line">
-						<div class="section-head">
-							<h2 class="section-title text-uppercase">개요</h2>
+						<div class="section-line">
+							<div class="section-head">
+								<h2 class="section-title text-uppercase">개요</h2>
+							</div>
+							<div class="section-description">${movie.m_comment}</div>
 						</div>
-						<div class="section-description">
-							<p class="lead">Lead text. Lorem Ipsum is simply dummy text
-								of the printing and typesetting industry. Lorem Ipsum has been
-								the industry's standard dummy text ever since the 1500s, when an
-								unknown printer took a galley of type and scrambled it to make a
-								type specimen book.</p>
-							<h6 class="text-dark">Why do we use it?</h6>
-							<p>It is a long established fact that a reader will be
-								distracted by the readable content of a page when looking at its
-								layout. The point of using Lorem Ipsum is that it has a
-								more-or-less normal distribution of letters, as opposed to using
-								'Content here, content here', making it look like readable
-								English. Many desktop publishing packages and web page editors
-								now use Lorem Ipsum as their default model text, and a search
-								for 'lorem ipsum' will uncover many web sites still in their
-								infancy. Various versions have evolved over the years, sometimes
-								by accident, sometimes on purpose (injected humour and the
-								like).</p>
-							<h6 class="text-dark">Where does it come from?</h6>
-							<p>Contrary to popular belief, Lorem Ipsum is not simply
-								random text. It has roots in a piece of classical Latin
-								literature from 45 BC, making it over 2000 years old. Richard
-								McClintock, a Latin professor at Hampden-Sydney College in
-								Virginia, looked up one of the more obscure Latin words,
-								consectetur, from a Lorem Ipsum passage, and going through the
-								cites of the word in classical literature, discovered the
-								undoubtable source. Lorem Ipsum comes from sections 1.10.32 and
-								1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good
-								and Evil) by Cicero, written in 45 BC. This book is a treatise
-								on the theory of ethics, very popular during the Renaissance.
-								The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
-								comes from a line in section 1.10.32.</p>
-							<p>The standard chunk of Lorem Ipsum used since the 1500s is
-								reproduced below for those interested. Sections 1.10.32 and
-								1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
-								reproduced in their exact original form, accompanied by English
-								versions from the 1914 translation by H. Rackham.</p>
-						</div>
-					</div>
+					</c:forEach>
 					<div class="section-line">
 						<div class="section-head">
 							<h2 class="section-title text-uppercase">평점</h2>
