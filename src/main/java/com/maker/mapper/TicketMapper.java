@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.maker.vo.TicketVO;
+import com.maker.domain.TicketVO;
 
 public interface TicketMapper {
     List<TicketVO> getList();

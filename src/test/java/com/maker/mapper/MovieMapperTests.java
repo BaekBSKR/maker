@@ -1,7 +1,7 @@
 package com.maker.mapper;
 
+import com.maker.domain.MovieVO;
 import com.maker.mapper.MovieMapper;
-import com.maker.vo.MovieVO;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

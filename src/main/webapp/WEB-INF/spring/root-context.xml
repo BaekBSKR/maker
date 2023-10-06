@@ -23,4 +23,8 @@
 	</bean>
 	
 	<mybatis-spring:scan base-package="com.maker.mapper"/>
+	<context:component-scan base-package="com.maker.domain"></context:component-scan>
+	<context:component-scan base-package="com.maker.service"></context:component-scan>
+	<context:component-scan base-package="com.maker.controller"></context:component-scan>
+	
 </beans>

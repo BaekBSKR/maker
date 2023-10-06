@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.maker.domain.MovieVO;
 import com.maker.service.MovieService;
-import com.maker.vo.MovieVO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;

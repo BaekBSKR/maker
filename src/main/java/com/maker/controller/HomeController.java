@@ -15,8 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.maker.domain.MovieVO;
 import com.maker.service.MovieService;
-import com.maker.vo.MovieVO;
 
 /**
  * Handles requests for the application home page.

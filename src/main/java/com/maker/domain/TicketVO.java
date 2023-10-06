@@ -1,4 +1,4 @@
-package com.maker.vo;
+package com.maker.domain;
 
 public class TicketVO {
     private Long tno;

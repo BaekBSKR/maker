@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.maker.domain.TicketVO;
 import com.maker.mapper.TicketMapper;
-import com.maker.vo.TicketVO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;

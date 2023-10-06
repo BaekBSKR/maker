@@ -2,7 +2,7 @@ package com.maker.service;
 
 import java.util.List;
 
-import com.maker.vo.MovieVO;
+import com.maker.domain.MovieVO;
 
 public interface MovieService {
 	void register(MovieVO movie);

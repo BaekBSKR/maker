@@ -13,8 +13,8 @@ import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.maker.domain.MovieVO;
 import com.maker.service.MovieService;
-import com.maker.vo.MovieVO;
 
 @Component
 public class MovieAPIController {

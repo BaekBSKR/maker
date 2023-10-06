@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.maker.domain.MovieVO;
+import com.maker.domain.TicketVO;
 import com.maker.service.MovieService;
 import com.maker.service.TicketService;
-import com.maker.vo.MovieVO;
-import com.maker.vo.TicketVO;
 
 import lombok.RequiredArgsConstructor;
 

@@ -2,7 +2,7 @@ package com.maker.service;
 
 import java.util.List;
 
-import com.maker.vo.TicketVO;
+import com.maker.domain.TicketVO;
 
 public interface TicketService {
 	void register(TicketVO ticket);
