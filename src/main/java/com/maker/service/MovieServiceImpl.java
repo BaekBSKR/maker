@@ -52,4 +52,25 @@ public class MovieServiceImpl implements MovieService {
 	public int findByTitle(String m_title) {
 		return mapper.findByTitle(m_title);
 	}
+	@Override
+    public String getMovieTimeByTitle(String m_title) {
+    	return mapper.getMovieTimeByTitle(m_title);
+    }
+	@Override
+	public List<MovieVO> getview() {
+		// TODO Auto-generated method stub
+		return mapper.getview();
+	}
+
+	@Override
+	public List<MovieVO> readview(String m_title) {
+		// TODO Auto-generated method stub
+		return mapper.readview(m_title);
+	}
+
+	@Override
+	public List<MovieVO> lastview() {
+		// TODO Auto-generated method stub
+		return mapper.lastview();
+	}
 }

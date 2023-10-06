@@ -2,6 +2,9 @@ package com.maker.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,4 +36,10 @@ public class MovieSvcTest {
 		List<MovieVO> movies = svc.getList();
         model.addAttribute("movies", movies);
 	}
+	
+	@Test
+	public void testString() {
+		System.out.println(svc.getMovieTimeByTitle(" 가메라2: 레기온 내습"));
+	}
+
 }

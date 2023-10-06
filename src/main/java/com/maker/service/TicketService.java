@@ -10,4 +10,6 @@ public interface TicketService {
     int remove(Long tno);
     List<TicketVO> getList();
     int findByCno(Long cno);
+    List<Integer> getSeatList(String t_time);
+    String isExistsTicketInfo(String t_time, int sno);
 }

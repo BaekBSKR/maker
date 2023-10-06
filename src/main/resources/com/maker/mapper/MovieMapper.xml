@@ -30,4 +30,16 @@
 	<select id="getList" resultType="com.maker.vo.MovieVO">
 		select * from movie where m_time > 0
 	</select>
+	<select id="getMovieTimeByTitle" resultType="String">
+		select m_time from movie where m_title = #{m_title}
+	</select>
+	<select id="getview" resultType="com.maker.vo.MovieVO">
+		select * from movie where rownum between 0 and 10 order by mno
+	</select>
+	<select id="lastview" resultType="com.maker.vo.MovieVO">
+		select * from movie where rownum between 0 and 3 order by mno desc
+	</select>
+	<select id="readview" resultType="com.maker.vo.MovieVO">
+		select * from movie where m_title = #{m_title}
+	</select>
 </mapper>

@@ -2,6 +2,8 @@ package com.maker.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.maker.vo.TicketVO;
 
 public interface TicketMapper {
@@ -10,5 +12,6 @@ public interface TicketMapper {
     void insert(TicketVO ticket);
     int delete(Long tno);
     int update(Long tno);
-    int checkTicket(String t_time, int sno);
+    int ticketCheck(@Param("t_time")String t_time, @Param("sno")int sno);
+    List<Integer> getSeatList(String t_time);
 }

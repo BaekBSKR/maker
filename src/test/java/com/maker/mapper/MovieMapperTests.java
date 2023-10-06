@@ -22,4 +22,8 @@ public class MovieMapperTests {
 		mapper.update(movie);
 		
 	}
+	@Test
+	public void testTime() {
+		mapper.getMovieTimeByTitle(" 성난 얼굴로 돌아보라");
+	}
 }

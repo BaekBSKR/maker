@@ -11,4 +11,8 @@ public interface MovieService {
 	int remove(String m_title);
 	List<MovieVO> getList();
 	int findByTitle(String m_title);
+	String getMovieTimeByTitle(String m_title);
+	List<MovieVO> getview();
+	List<MovieVO> readview(String m_title);
+	List<MovieVO> lastview();
 }

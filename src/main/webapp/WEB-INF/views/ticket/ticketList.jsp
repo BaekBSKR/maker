@@ -30,7 +30,7 @@
 		        var date = $('#date').val();
 		        var time = $('#time').val();
 		        // 예매 정보를 "yyyy-mm-dd/hh:mm" 형태의 문자열로 합침
-		        var mTime = date + time;
+		        var t_time = date + time;
 		
 		        // 여기에서 bookingInfo를 서버로 보내거나 필요한 로직을 수행할 수 있습니다.
 		        // 이 예제에서는 결과를 화면에 표시합니다.
@@ -71,7 +71,7 @@
 
         <label for="time">시간:</label>
         <input type="time" id="time" name="time" required><br>
-
+		<input type="text" id="t_time" name="t_time" hidden="hidden">
         <div id="seats">
 	        <%-- 좌석을 나타내는 엘리먼트를 생성합니다. --%>
 	        <c:forEach var="row" begin="1" end="5">
