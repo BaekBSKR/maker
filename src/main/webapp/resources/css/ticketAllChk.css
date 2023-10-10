@@ -45,7 +45,13 @@ label, input, select {
     line-height: 50px;
     cursor: pointer;
 }
-.booked {
-    background-color: #ccc;
-    pointer-events: none;
+.reserved-seat{
+	width: 50px !important;
+    height: 50px;
+    border: 1px solid black;
+    margin: 5px;
+    text-align: center;
+    line-height: 50px;
+	background-color: #808080;
+	cursor: none;
 }

@@ -11,8 +11,8 @@
   		resultType="long">
   		select seq_ticket.nextval from dual
   	</selectKey>
-  	insert into movie(tno, t_title, t_price, sno, mno, cno)
-	values(#{tno}, #{t_title}, #{t_price},
+  	insert into ticket(tno, t_time, t_price, sno, mno, cno)
+	values(#{tno}, #{t_time}, #{t_price},
 		#{sno}, #{mno}, #{cno})
 	</insert>
 	<delete id="delete">
@@ -31,10 +31,29 @@
 		select sno from ticket where t_time = #{t_time}
 	</select>
 	<select id="ticketCheck" resultType="int">
-		select count(*) from ticket 
+		select count(*) from ticket
 		where t_time = #{t_time} and sno = #{sno} and mno = #{mno}
 	</select>
 	<select id="getList" resultType="com.maker.domain.TicketVO">
-		select * from ticket from cno = #{cno}
+		select * from ticket where cno = #{cno}
+	</select>
+	<select id="getReservedSeatsList" resultType="int">
+		select sno from ticket where t_time = #{t_time} and mno = #{mno}
+	</select>
+	<!-- 총 게시글 갯수 출력 -->
+	<select id="countBoard" resultType="int">
+		select count(*) from ticket where cno = 1
+	</select>
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectBoard" resultType="com.maker.domain.TicketVO">
+		select * from (
+			select rownum rn, A.* from (
+						select * 
+						from ticket
+						where cno = 1 
+						order by tno 
+						) A
+					)
+		where rn between #{start} and #{end}
 	</select>
 </mapper>

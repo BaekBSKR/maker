@@ -87,5 +87,9 @@ public class MovieServiceImpl implements MovieService {
 		// TODO Auto-generated method stub
 		return mapper.selectBoard(vo);
 	}
+	@Override
+	public int findMnoByTitle(String m_title) {
+		return mapper.findMnoByTitle(m_title);
+	}
 }
 

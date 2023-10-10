@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.maker.domain.MovieVO;
+import com.maker.domain.PagingVO;
 import com.maker.domain.TicketVO;
 import com.maker.mapper.MovieMapper;
 import com.maker.mapper.TicketMapper;
@@ -22,8 +24,8 @@ public class TicketServiceImpl implements TicketService {
     public void register(TicketVO ticket) {
     	tMapper.insert(ticket);
     }
-    public List<TicketVO> getList() {
-        return tMapper.getList();
+    public List<TicketVO> getList(Long cno) {
+        return tMapper.getList(cno);
     }
     public List<Integer> getSeatList(String t_time){
     	return tMapper.getSeatList(t_time);
@@ -51,5 +53,23 @@ public class TicketServiceImpl implements TicketService {
 	public int findByCno(Long cno) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	//예약 좌석 목록
+	@Override
+	public List<Integer> getReservedSeats(String t_time, String m_title) {
+		int mno = mMapper.findMnoByTitle(m_title);
+		return tMapper.getReservedSeatsList(t_time, mno);
+	}
+	
+	@Override
+	public int countBoard() {
+		// TODO Auto-generated method stub
+		return tMapper.countBoard();
+	}
+
+	@Override
+	public List<MovieVO> selectBoard(PagingVO vo) {
+		// TODO Auto-generated method stub
+		return tMapper.selectBoard(vo);
 	}
 }

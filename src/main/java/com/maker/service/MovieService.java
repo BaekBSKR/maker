@@ -20,4 +20,5 @@ public interface MovieService {
 	int countBoard();
 	// 페이징 처리 게시글 조회
 	List<MovieVO> selectBoard(PagingVO vo);
+	int findMnoByTitle(String m_title);
 }

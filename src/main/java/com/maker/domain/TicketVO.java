@@ -1,5 +1,8 @@
 package com.maker.domain;
 
+import lombok.Data;
+
+@Data
 public class TicketVO {
     private Long tno;
     private String t_time;

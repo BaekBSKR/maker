@@ -30,7 +30,7 @@ public class MovieInfoServlet extends HttpServlet {
         System.out.println(m_title + dateTime);
         String m_time = mSvc.getMovieTimeByTitle(m_title); // 상영 시작 시간
         String t_time = dateTime + m_time;// 예약 시간 정보
-        List<Integer> bookedSeats = tSvc.getSeatList(t_time); // 예매된 좌석 목록
+        List<Integer> bookedSeats = tSvc.getReservedSeats(t_time, m_title); // 예매된 좌석 목록
 
         // 응답을 JSON 형태로 작성
         JSONObject responseJson = new JSONObject();

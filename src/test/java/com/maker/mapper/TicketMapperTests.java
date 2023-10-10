@@ -17,4 +17,8 @@ public class TicketMapperTests {
 	public void test1() {
 		mapper.ticketCheck("2023/10/20/18:00", 1, 1);
 	}
+	@Test
+	public void testList() {
+		mapper.getReservedSeatsList("2023/10/11/12:00", 4);
+	}
 }
