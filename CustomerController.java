@@ -105,8 +105,21 @@ public class CustomerController {
         
         session.setAttribute("customer", lvo);             // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
         
-        return "redirect:/customer/main";
+        return "redirect:../customer/main";
 
+    }
+    
+    // 로그아웃
+    @RequestMapping(value = "logout.do", method = RequestMethod.POST)
+    @ResponseBody
+    public String logoutPOST(HttpServletRequest request) {
+        log.info("logoutPOST 메소드 실행");
+        
+        HttpSession session = request.getSession();
+        session.invalidate();
+        
+        return "redirect:../customer/main";
+        
     }
     
     // 고객번호 검색 팝업창 

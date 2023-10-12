@@ -60,12 +60,19 @@
                </div>
                
 				
-              
-             	<div class="btn_section">
-              		<button id="cancelBtn" class="btn">목 록</button>
-	                <button id="modifyBtn" class="btn modify_btn">수 정</button>
-	                <button id="deleteBtn" class="btn delete_btn">삭 제</button>
-	          	</div> 
+              	<c:if test="${customer != null}">
+	             	<div class="btn_section">
+	              		<button id="cancelBtn" class="btn">목 록</button>
+		                <button id="modifyBtn" class="btn modify_btn">수 정</button>
+		                <button id="deleteBtn" class="btn delete_btn">삭 제</button>
+		          	</div> 
+	          	</c:if>
+	          	
+	          	<c:if test="${customer == null}">
+	          		<div class="btn_section">
+	              		<button id="cancelBtn" class="btn">목 록</button>
+	              	</div>
+	          	</c:if>
 			</div>                    
 	</div>
                 
