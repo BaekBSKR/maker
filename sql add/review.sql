@@ -21,3 +21,5 @@ insert into review(rno, mno, cno, c_nick,
 values(seq_review.nextval, 1, 1, '사용자1', '이 영화는...', 3);
 
 select * from review;
+
+drop table review;
