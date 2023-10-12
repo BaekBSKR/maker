@@ -47,11 +47,19 @@
 	            	</c:if>
 	            	
 	            	<c:if test="${listCheck == 'empty'}">
-        				<div class="table_empty">
-            				등록된 공지사항이 없습니다. 공지사항을 등록해주세요.
-            				<div><a href="/notice/noticeEnroll">등록</a></div>
-            			</div>
-            			
+	            		<c:if test="${customer != null}">
+	        				<div class="table_empty">
+	            				등록된 공지사항이 없습니다. 공지사항을 등록해주세요.
+	            				<div><a href="/notice/noticeEnroll">등록</a></div>
+	            			</div>
+	            		</c:if>
+	            		
+	            		<c:if test="${customer == null}">
+	        				<div class="table_empty">
+	            				등록된 공지사항이 없습니다. 공지사항을 등록하시려면 로그인을 진행해주세요.
+	            				<div><a href="/customer/login">로그인</a></div>
+	            			</div>
+	            		</c:if>
         			</c:if>           			
 	            </div>
 	            
@@ -65,7 +73,10 @@
 	                			<input type="hidden" name="amount" value='${pageMaker.cri.amount}'>
 	                			<button class='btn search_btn'>검 색</button>
 	            			</div>
-	            			<div style="margin-left:1030px;"><a href="/notice/noticeEnroll">등록</a></div>
+	            			
+	            			<c:if test="${customer != null}">
+	            				<div style="margin-left:1030px;"><a href="/notice/noticeEnroll">등록</a></div>
+	            			</c:if>
 	    				</form>
 					</div>  
 				</c:if>

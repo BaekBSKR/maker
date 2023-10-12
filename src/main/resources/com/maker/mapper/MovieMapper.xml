@@ -45,6 +45,15 @@
 	<select id="readview" resultType="com.maker.domain.MovieVO">
 		select * from movie where m_title = #{m_title}
 	</select>
+	<!-- 평점 확인 -->
+	<select id="countStar">
+		select count(*) from movie where mno=#{mno}
+	</select>
+	
+	<!-- 평점 변경 -->
+	<update id="updateStar">
+		update movie set m_star = #{m_star} where mno = #{mno}
+	</update>
 	<!-- 총 게시글 갯수 출력 -->
 	<select id="countBoard" resultType="int">
 		select count(*) from movie
@@ -60,4 +69,5 @@
 					)
 		where rn between #{start} and #{end}
 	</select>
+	
 </mapper>

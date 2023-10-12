@@ -50,7 +50,7 @@ public class TicketController {
             cntPerPage = "5";
         }
         vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-
+        
         //cno @Param 처리 추가
         Long cno = 1L;
         List<TicketVO> tickets = tSvc.getList(cno);

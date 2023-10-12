@@ -40,9 +40,14 @@
 <!-- jQuery library -->
 <script src="/resources/js/ticketAllChk.js"></script>
 <%@ include file="../includes/header.jsp"%>
-<div class="top-block-content">
-	<h1 class="section-title">영화 예매</h1>
-</div>
+<section class="after-head d-flex section-text-white position-relative">
+		<div class="d-background bg-black-80"></div>
+		<div class="top-block top-inner container">
+			<div class="top-block-content">
+				<h1 class="section-title">예매 페이지</h1>
+			</div>
+		</div>
+</section>
 <div id="wrapper">
 	<div id="ticketCenter">
 	    <form action="./ticketSave" method="post">

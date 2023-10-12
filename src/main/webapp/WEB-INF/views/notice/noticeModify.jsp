@@ -25,7 +25,6 @@
 	                	<div class="form_section_title">
 	                    	<label>제목</label>
 	                   	</div>
-	                   	
 	                   	<div class="form_section_content">
 	                   		<input type="text" class="input_block" name="n_title" id="n_title" value="${noticeInfo.n_title}">
 	                   	</div>
