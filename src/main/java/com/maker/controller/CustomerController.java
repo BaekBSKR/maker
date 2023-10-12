@@ -53,7 +53,7 @@ public class CustomerController {
 		customerService.customerJoin(customer);
 		rttr.addFlashAttribute("register_result", result);
 		log.info("join Service 성공");
-		return "redirect:/customer/main";
+		return "redirect:/";
 	}
 	//로그인 페이지 이동
 	@RequestMapping(value = "login", method = RequestMethod.GET)
@@ -98,7 +98,7 @@ public class CustomerController {
 	        
 	        session.setAttribute("customer", lvo);             // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
 	        
-	        return "redirect:/customer/main";
+	        return "redirect:/";
 
 	    }
 	    

@@ -32,6 +32,21 @@
 <link href="/resources/css/dot-icons.css" rel="stylesheet"
 	type="text/css">
 <link href="/resources/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+.paging {
+	display: block;
+	padding-left: 40%;
+}
+
+.paging a {
+	font-weight: bold;
+	font-size: 20px;
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+</style>
 </head>
 <body>
 <%@ include file="../includes/header.jsp"%>
@@ -53,15 +68,35 @@
 			<c:forEach var="ticket" items="${viewAll}">
 				<article class="movie-line-entity">
 					<div class="entity-poster" data-role="hover-wrap">
+						<div class="embed-responsive embed-responsive-poster">
+							<img class="embed-responsive-item" src="${ticket.m_img}" />
+						</div>
 					</div>
 					<div class="entity-content">
-						<p class="text-short entity-text">${ticket.t_time}</p>
-						<p class="text-short entity-text">${ticket.sno}</p>
-						<p class="text-short entity-text">${ticket.t_price}</p>
+						<h4 class="entity-title">
+							<a class="content-link">${ticket.m_title}</a>
+						</h4>
+						<div class="entity-info">
+							<div class="info-lines">
+								<div class="info info-short">
+									<span class="text-theme info-icon"><i
+										class="fas fa-clock"></i></span> <span class="info-text">${ticket.t_time}</span>
+								</div>
+								<div class="info info-short">
+									<span class="text-theme info-icon"><i
+										class='fas fa-user'></i></span><span class="info-rest">좌석 </span><span class="info-text">${ticket.sno}</span>
+								</div>
+								<div class="info info-short">
+									<span class="text-theme info-icon"><i
+										class='fas fa-money-bill-alt'></i></span> <span class="info-text">${ticket.t_price}</span><span class="info-rest">원</span>
+								</div>
+							</div>
+						</div>
+						<p class="text-short entity-text">${ticket.m_comment}</p>
 					</div>
 				</article>
 			</c:forEach>
-			<div style="display: block; text-align: center;">
+			<div class="paging">
 				<c:if test="${paging.startPage != 1}">
 					<a
 						href="/ticket/ticketList?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}">&lt;</a>
@@ -70,7 +105,7 @@
 					var="p">
 					<c:choose>
 						<c:when test="${p == paging.nowPage}">
-							<b>${p}</b>
+							<b><a>${p}</a></b>
 						</c:when>
 						<c:when test="${p != paging.nowPage}">
 							<a
@@ -85,7 +120,7 @@
 			</div>
 		</div>
 	</section>
-<a class="scroll-top disabled" href="#"><i class="fas fa-angle-up"
+	<a class="scroll-top disabled" href="#"><i class="fas fa-angle-up"
 		aria-hidden="true"></i></a>
 <%@ include file="../includes/footer.jsp"%>
 <!-- jQuery library -->

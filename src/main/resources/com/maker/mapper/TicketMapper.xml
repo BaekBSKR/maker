@@ -48,10 +48,7 @@
 	<select id="selectBoard" resultType="com.maker.domain.TicketVO">
 		select * from (
 			select rownum rn, A.* from (
-						select * 
-						from ticket
-						where cno = 1 
-						order by tno 
+						select * from ticket t left join movie m on t.mno = m.mno where cno = 1
 						) A
 					)
 		where rn between #{start} and #{end}

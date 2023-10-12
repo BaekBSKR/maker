@@ -1,5 +1,7 @@
 package com.maker.domain;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -10,7 +12,11 @@ public class TicketVO {
     private int sno;
     private Long mno;
     private Long cno;
-
+    
+    private List<MovieVO> movieVO;
+    private String m_img;
+    private String m_title;
+    private String m_comment;
     public TicketVO(){}
 
     public TicketVO(String t_time, int t_price, int sno,
