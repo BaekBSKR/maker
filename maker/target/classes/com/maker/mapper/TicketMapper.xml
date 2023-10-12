@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.maker.mapper.TicketMapper">
+  <select id="selectMovieList" resultType="com.maker.domain.TicketVO">
+  	select * from ticket
+  </select>
+  <insert id = "insert">
+  	<selectKey keyProperty="tno" order="BEFORE"
+  		resultType="long">
+  		select seq_ticket.nextval from dual
+  	</selectKey>
+  	insert into ticket(tno, t_time, t_price, sno, mno, cno)
+	values(#{tno}, #{t_time}, #{t_price},
+		#{sno}, #{mno}, #{cno})
+	</insert>
+	<delete id="delete">
+		delete from ticket where tno = #{tno}
+	</delete>
+	<select id="read" resultType="com.maker.domain.TicketVO">
+		select * from ticket where cno = #{cno}
+	</select>
+	<update id="update">
+		update ticket set t_time = #{t_time} where t_price = #{t_price}
+	</update>
+	<select id="findByTitle" resultType="int">
+		select count(*) from ticket where cno = #{cno}
+	</select>
+	<select id="getSeatList" resultType="int">
+		select sno from ticket where t_time = #{t_time}
+	</select>
+	<select id="ticketCheck" resultType="int">
+		select count(*) from ticket
+		where t_time = #{t_time} and sno = #{sno} and mno = #{mno}
+	</select>
+	<select id="getList" resultType="com.maker.domain.TicketVO">
+		select * from ticket where cno = #{cno}
+	</select>
+	<select id="getReservedSeatsList" resultType="int">
+		select sno from ticket where t_time = #{t_time} and mno = #{mno}
+	</select>
+	<!-- 총 게시글 갯수 출력 -->
+	<select id="countBoard" resultType="int">
+		select count(*) from ticket where cno = 1
+	</select>
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectBoard" resultType="com.maker.domain.TicketVO">
+		select * from (
+			select rownum rn, A.* from (
+						select * from ticket t left join movie m on t.mno = m.mno where cno = 1
+						) A
+					)
+		where rn between #{start} and #{end}
+	</select>
+</mapper>
