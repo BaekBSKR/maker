@@ -51,14 +51,8 @@
 									<div class="embed-responsive embed-responsive-poster">
 										<img class="embed-responsive-item" src="${movie.m_img}" alt="" />
 									</div>
-									<div
-										class="d-background bg-theme-lighted collapse animated faster"
-										data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
 									<div class="d-over bg-highlight-bottom">
-										<div class="collapse animated faster entity-play"
-											data-show-class="fadeIn show" data-hide-class="fadeOut show">
-											<a class="btn1-theme btn" href="#">예약하기</a>
-										</div>
+										
 										<h4 class="entity-title">
 											<a class="content-link"
 												href="/movie/movieinfo?m_title=${movie.m_title}">${movie.m_title}</a>
@@ -108,12 +102,6 @@
 					<div class="entity-poster" data-role="hover-wrap">
 						<div class="embed-responsive embed-responsive-poster">
 							<img class="embed-responsive-item" src="${movie.m_img}" alt="" />
-						</div>
-						<div class="d-over bg-theme-lighted collapse animated faster"
-							data-show-class="fadeIn show" data-hide-class="fadeOut show">
-							<div class="entity-play">
-								<a class="btn1-theme btn" href="#">예약하기</a>
-							</div>
 						</div>
 					</div>
 					<div class="entity-content">
