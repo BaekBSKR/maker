@@ -62,14 +62,14 @@ public class TicketServiceImpl implements TicketService {
 	}
 	
 	@Override
-	public int countBoard() {
+	public int countBoard(Long cno) {
 		// TODO Auto-generated method stub
-		return tMapper.countBoard();
+		return tMapper.countBoard(cno);
 	}
 
 	@Override
-	public List<MovieVO> selectBoard(PagingVO vo) {
+	public List<MovieVO> selectBoard(PagingVO vo, Long cno) {
 		// TODO Auto-generated method stub
-		return tMapper.selectBoard(vo);
+		return tMapper.selectBoard(vo, cno, vo.getStart(), vo.getEnd());
 	}
 }

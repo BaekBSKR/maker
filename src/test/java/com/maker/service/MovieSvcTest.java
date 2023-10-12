@@ -41,5 +41,4 @@ public class MovieSvcTest {
 	public void testString() {
 		System.out.println(svc.getMovieTimeByTitle(" 가메라2: 레기온 내습"));
 	}
-
 }

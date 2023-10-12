@@ -16,7 +16,7 @@ public interface TicketService {
     String isExistsTicketInfo(String t_time, int sno, String m_title);
     List<Integer> getReservedSeats(String t_time, String m_title);
     // 예매 총 갯수
- 	int countBoard();
+ 	int countBoard(Long cno);
  	// 페이징 처리 예매 조회
- 	List<MovieVO> selectBoard(PagingVO vo);
+ 	List<MovieVO> selectBoard(PagingVO vo, Long cno);
 }

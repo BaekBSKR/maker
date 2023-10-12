@@ -17,7 +17,11 @@ public interface ReviewMapper {
 	public List<ReviewVO> readview(Long mno);
 	public List<ReviewVO> lastview();
 	// 게시물 총 갯수
-	public int countBoard();
+	public int countReview(Long mno);
 	// 페이징 처리 게시글 조회
-	public List<ReviewVO> selectBoard(PagingVO vo);
+	public List<ReviewVO> selectBoard(
+			@Param("PageVO")PagingVO vo,
+			@Param("mno")Long mno,
+			@Param("start")int start,
+			@Param("end")int end);
 }

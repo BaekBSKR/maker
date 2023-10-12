@@ -23,7 +23,11 @@ public interface TicketMapper {
     		@Param("t_time")String t_time,
             @Param("mno")int mno);
     // 예매 총 갯수
- 	public int countBoard();
+ 	public int countBoard(Long cno);
  	// 페이징 처리 예매 조회
- 	public List<MovieVO> selectBoard(PagingVO vo);
+ 	public List<MovieVO> selectBoard(
+ 			@Param("vo")PagingVO vo,
+ 			@Param("cno")Long cno,
+ 			@Param("start")int start,
+ 			@Param("end")int end);
 }

@@ -45,9 +45,9 @@
 	<select id="readview" resultType="com.maker.domain.MovieVO">
 		select * from movie where m_title = #{m_title}
 	</select>
-	<!-- 평점 확인 -->
-	<select id="countStar">
-		select count(*) from movie where mno=#{mno}
+	<!-- 평점 개수 확인 -->
+	<select id="countStar" resultType="int">
+		select count(*) from movie where mno = #{mno}
 	</select>
 	
 	<!-- 평점 변경 -->

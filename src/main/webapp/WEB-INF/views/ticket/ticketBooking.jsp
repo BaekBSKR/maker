@@ -65,8 +65,7 @@
 	        <input type="text" id="m_time" name="m_time" readonly><br>
 	        <label for="sno">좌석번호</label>
 	        <input type="text" id="sno" name="sno" readonly><br>
-	        <%-- customer cno 정보를 넣어주세요. --%>
-	        <input type="text" id="cno" name="cno" value=1 hidden="hidden">
+	        <input type="text" id="cno" name="cno" value=${customer.cno} hidden="hidden">
 	        <input type="text" id="t_time" name="t_time" hidden="hidden">
 	        <div id="seats">
 		        <%-- 좌석을 나타내는 엘리먼트를 생성합니다. --%>

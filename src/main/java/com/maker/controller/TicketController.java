@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.maker.domain.CustomerVO;
 import com.maker.domain.MovieVO;
 import com.maker.domain.PagingVO;
 import com.maker.domain.TicketVO;
@@ -38,9 +42,14 @@ public class TicketController {
 	//예매 목록
     @GetMapping("/ticketList")
     public void ticketList(PagingVO vo, Model model, @RequestParam(value = "nowPage", required = false) String nowPage,
-                          @RequestParam(value = "cntPerPage", required = false) String cntPerPage) {
-        //ticket서비스에 생성
-        int total = tSvc.countBoard();
+                          @RequestParam(value = "cntPerPage", required = false) String cntPerPage,
+                          HttpServletRequest request) {
+    	HttpSession session = request.getSession();
+    	CustomerVO customer = (CustomerVO) session.getAttribute("customer");
+    	Long cno = customer.getCno();
+    	
+    	//ticket서비스에 생성
+        int total = tSvc.countBoard(cno);
         if (nowPage == null && cntPerPage == null) {
             nowPage = "1";
             cntPerPage = "5";
@@ -52,11 +61,11 @@ public class TicketController {
         vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
         
         //cno @Param 처리 추가
-        Long cno = 1L;
+        
         List<TicketVO> tickets = tSvc.getList(cno);
 
         model.addAttribute("paging", vo);
-        model.addAttribute("viewAll", tSvc.selectBoard(vo));
+        model.addAttribute("viewAll", tSvc.selectBoard(vo, cno));
 //        model.addAttribute("movies", movies);
         model.addAttribute("tickets", tickets);
     }

@@ -6,8 +6,8 @@
 <mapper namespace="com.maker.mapper.NoticeMapper">
 	<!-- 공지사항 등록 -->
     <insert id="noticeEnroll">
-    	insert into notice(nno, n_title, n_comment, n_reg, cno)
-        values(seq_notice.nextval, #{n_title}, #{n_comment}, sysdate, #{cno})
+    	insert into notice(nno, n_title, n_comment, n_reg, n_update, cno)
+        values(seq_notice.nextval, #{n_title}, #{n_comment}, sysdate, sysdate, #{cno})
     </insert>
     
     <!-- 공지사항 목록 -->
@@ -17,7 +17,7 @@
         select *
         from (
             select /*+ index_desc(notice PK_NOTICE) */ 
-                rownum rn, nno, n_title, n_comment, n_reg, cno
+                rownum rn, nno, n_title, n_comment, n_reg, cno, n_update
             from notice 
             where
              
@@ -56,12 +56,13 @@
 		<result property="n_comment" column="N_COMMENT" />
 		<result property="n_reg" column="N_REG" />
 		<result property="cno" column="CNO" />
+		<result property="n_update" column="N_UPDATE" />
     </resultMap>
     
     <!-- 공지사항 수정 -->
   	<update id="noticeModify">
 		update notice 
-		set n_title = #{n_title}, n_comment = #{n_comment}
+		set n_title = #{n_title}, n_comment = #{n_comment}, n_update = sysdate
 		where nno = #{nno}
   	</update>
     

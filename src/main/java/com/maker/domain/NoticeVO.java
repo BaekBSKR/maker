@@ -11,6 +11,6 @@ public class NoticeVO {
 	private String n_title;
 	private String n_comment;
 	private Date n_reg;
+	private Date n_update;
 	private long cno;
-	
 }

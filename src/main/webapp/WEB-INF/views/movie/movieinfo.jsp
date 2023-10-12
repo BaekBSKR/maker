@@ -95,6 +95,55 @@
 							<div class="section-description">${movie.m_comment}</div>
 						</div>
 					</c:forEach>
+	<section class="section-long">
+		<div class="container">
+			<c:forEach var="review" items="${viewReviewAll}">
+				<article class="movie-line-entity">
+					<div class="entity-content">
+						<div class="entity-info">
+							<div class="info-lines">
+								<div class="info info-short">
+									<span class="text-theme info-icon"><i
+										class="fas fa-star"></i></span> <span class="info-text">${review.r_star}</span>
+									<span class="info-rest">${review.r_star}</span>
+								</div>
+								<div class="info info-short">
+									<span class="text-theme info-icon"><i
+										class="fas fa-clock"></i></span> <span class="info-text">${review.c_nick}</span>
+								</div>
+							</div>
+						</div>
+						<p class="text-short entity-text">${review.r_comment}</p>
+					</div>
+				</article>
+			</c:forEach>
+			<div style="display: block; text-align: center;">
+				<c:if test="${paging.startPage != 1}">
+					<a
+						href="/movie/movieinfo?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}">&lt;</a>
+				</c:if>
+				<c:forEach begin="${paging.startPage}" end="${paging.endPage}"
+					var="p">
+					<c:choose>
+						<c:when test="${p == paging.nowPage}">
+							<b>${p}</b>
+						</c:when>
+						<c:when test="${p != paging.nowPage}">
+							<a
+								href="/movie/movieinfo?nowPage=${p}&cntPerPage=${paging.cntPerPage}">${p}</a>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${paging.endPage != paging.lastPage}">
+					<a
+						href="/movie/movieinfo?nowPage=${paging.endPage+1}&cntPerPage=${paging.cntPerPage}">&gt;</a>
+				</c:if>
+			</div>
+		</div>
+	</section>
+	<a class="scroll-top disabled" href="#"><i class="fas fa-angle-up"
+		aria-hidden="true"></i></a>
+		
 					<div class="section-line">
 						<div class="section-head">
 							<h2 class="section-title text-uppercase">평점</h2>
@@ -108,6 +157,7 @@
 										lacus, vehicula id mi vitae, auctor accumsan nulla. Sed a mi
 										quam. In euismod urna ac massa adipiscing interdum.</p>
 								</div>
+	
 								<div class="entity-extra">
 									<div class="grid-md row">
 										<div class="col-12 col-sm-auto">
@@ -138,7 +188,7 @@
 					</div>
 					<div class="section-line">
 						<div class="section-head">
-							<h2 class="section-title text-uppercase">댓글 추가</h2>
+							<h2 class="section-title text-uppercase">리뷰 작성</h2>
 						</div>
 						<form autocomplete="off">
 							<div class="row form-grid">

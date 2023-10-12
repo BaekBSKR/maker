@@ -119,7 +119,7 @@
 	            url: "/customer/logout.do",
 	            success:function(data){
 	                alert("로그아웃 되었습니다.");
-	                document.location.reload();
+	                location.replace("/customer/login");
 	            } 
         	}); 
 	    });
