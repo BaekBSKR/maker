@@ -1,9 +1,12 @@
 package com.maker.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
+import com.maker.domain.Criteria;
 import com.maker.domain.CustomerVO;
 import com.maker.mapper.CustomerMapper;
 
@@ -20,7 +23,6 @@ public class CustomerServiceImpl implements CustomerService {
 		} catch (DuplicateKeyException e) {
             e.printStackTrace();
         }
-
 	}
 
 	@Override
@@ -34,4 +36,13 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerMapper.customerLogin(customer);
 	}
 
+	@Override
+	public List<CustomerVO> customerGetList(Criteria cri) {
+		return customerMapper.customerGetList(cri);
+	}
+
+	@Override
+	public int customerGetTotal(Criteria cri) {
+		return customerMapper.customerGetTotal(cri);
+	}
 }

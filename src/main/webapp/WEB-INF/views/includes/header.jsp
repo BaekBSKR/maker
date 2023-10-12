@@ -60,6 +60,8 @@
 							href="/ticket/ticketBooking">예매하기</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="/ticket/ticketList">예매이력</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/notice/noticeManage">공지사항</a></li>
 					</ul>
 					<div class="navbar-extra">
 						<a class="btn-theme btn" href="/customer/join">회원가입</a>

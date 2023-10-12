@@ -10,4 +10,59 @@
         values(seq_customer.nextval, #{c_id}, #{c_pwd}, #{c_nick}, #{c_mail}, #{c_birth})
 	</insert>
 	
+	<!-- 아이디 중복검사 -->
+  	<select id="idCheck" resultType="int">
+  		select count(*) 
+  		from customer
+  		where c_id = #{c_id}
+  	</select>
+  	
+  	<!-- 로그인 -->
+	<select id="customerLogin" resultMap="mapping_CustomerVO">
+    	select *
+    	from customer
+    	where c_id = #{c_id} and c_pwd = #{c_pwd}
+    </select>
+    
+    <resultMap type="com.maker.domain.CustomerVO" id="mapping_CustomerVO">
+		<result property="cno" column="CNO" />
+		<result property="c_id" column="C_ID" />
+		<result property="c_pwd" column="C_PWD" />
+		<result property="c_nick" column="C_NICK" />
+		<result property="c_mail" column="C_MAIL" />
+		<result property="c_birth" column="C_BIRTH" />
+	</resultMap>
+	
+	<!-- 고객 목록 -->
+    <select id="customerGetList" resultType="com.maker.domain.CustomerVO">
+      
+    <![CDATA[
+        select *
+        from (
+            select /*+ index_desc(customer PK_CUSTOMER) */ 
+                rownum rn, cno, c_id, c_pwd, c_nick, c_mail, c_birth
+            from customer 
+            where
+             
+    ]]>         
+          <if test="keyword != null">
+              cno like '%'||#{keyword}||'%' and
+          </if>
+            
+    <![CDATA[        
+           rownum <= #{pageNum}*#{amount})
+          where rn > (#{pageNum}-1)*#{amount}
+    ]]>
+      
+    </select>
+	
+	<!-- 고객 개수 -->
+    <select id="customerGetTotal" resultType="int">
+		select count(*)
+		from customer
+			
+        <if test="keyword != null">
+        	where cno like '%' || #{keyword} || '%'
+        </if>
+    </select>
 </mapper>
