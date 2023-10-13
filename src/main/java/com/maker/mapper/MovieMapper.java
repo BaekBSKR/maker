@@ -20,7 +20,7 @@ public interface MovieMapper {
 	public List<MovieVO> lastview();
 	public int findMnoByTitle(String m_title);
 	// 평점 변경
-	public MovieVO updateStar(
+	public void updateStar(
 			@Param("m_star") float m_star,
 			@Param("mno") Long mno);
 	public int countStar(Long mno);

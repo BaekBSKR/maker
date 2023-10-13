@@ -1,5 +1,7 @@
 package com.maker.domain;
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data
@@ -11,6 +13,7 @@ public class ReviewVO {
 	private float r_star;
 	private Long mno;
 	private Long cno;
+	private Date r_reg;
 	public ReviewVO() {}
 	
 	public ReviewVO(String c_nick, String r_comment,

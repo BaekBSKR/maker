@@ -1,5 +1,7 @@
 package com.maker.controller;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.maker.domain.CustomerVO;
 import com.maker.domain.MovieVO;
@@ -60,19 +63,6 @@ public class MovieController {
 			PagingVO vo,
 			@RequestParam(value = "nowPage", required = false) String nowPage,
 			@RequestParam(value = "cntPerPage", required = false) String cntPerPage) throws Exception {
-		//사용자 정보 호출
-//		Long cno = 0L;
-		
-//		HttpSession session = request.getSession();
-//    	CustomerVO customer = (CustomerVO) session.getAttribute("customer");
-//    	try {
-//    		cno = customer.getCno();
-//    	}catch(NullPointerException e) {
-//    		cno = 0L;
-//    	}
-//    	if(cno == 0) {
-//    		System.out.println("로그인 필요");
-//    	}
     	//영화 정보 호출
 		Long mno = Long.valueOf(mSvc.findMnoByTitle(m_title));
     	List<MovieVO> mvo = mSvc.readview(m_title);
@@ -96,8 +86,25 @@ public class MovieController {
 		model.addAttribute("viewReviewAll", rSvc.selectBoard(vo, mno));
 		model.addAttribute("reviews", reviews);
 	}
+	@GetMapping("/reviewReg")
+	public String reviewEnd() {
+		return "redirect:/";
+	}
+	
 	@PostMapping("/reviewReg")
-	public void reviewSave(ReviewVO review) {
+	public String reviewSave(@RequestParam("m_title") String m_title,
+			@RequestParam("c_nick") String c_nick,
+			@RequestParam("r_comment") String r_comment,
+			@RequestParam("r_star") float r_star,
+			@RequestParam("mno") Long mno,
+			@RequestParam("cno") Long cno,
+	        RedirectAttributes attributes) {
+		
+		ReviewVO review = new ReviewVO(
+				c_nick, r_comment, r_star, mno, cno
+		);
+		log.info("리뷰 정보 : " + review.toString());
 		rSvc.register(review);
+	    return "redirect:/";
 	}
 }

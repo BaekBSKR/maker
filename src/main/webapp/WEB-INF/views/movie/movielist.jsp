@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>영화 리스트</title>
+<title>영화 목록</title>
 <!-- Bootstrap -->
 <link href="/resources/bootstrap/css/bootstrap.css" rel="stylesheet"
 	type="text/css" />
@@ -39,11 +39,11 @@
 		<div class="d-background bg-black-80"></div>
 		<div class="top-block top-inner container">
 			<div class="top-block-content">
-				<h1 class="section-title">영화 리스트</h1>
+				<h1 class="section-title">영화 목록</h1>
 				<div class="page-breadcrumbs">
 					<a class="content-link" href="/">홈</a> <span
 						class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
-					<a class="content-link" href="movielist">영화 리스트</a>
+					<a class="content-link" href="movielist">영화 목록</a>
 				</div>
 			</div>
 		</div>

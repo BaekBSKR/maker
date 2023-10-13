@@ -37,13 +37,16 @@
 		select m_time from movie where m_title = #{m_title}
 	</select>
 	<select id="getview" resultType="com.maker.domain.MovieVO">
-		select * from movie where rownum between 0 and 10 order by mno
+		select * from movie where rownum between 0 and 10 order by m_star desc
 	</select>
 	<select id="lastview" resultType="com.maker.domain.MovieVO">
 		select * from movie where rownum between 0 and 3 order by mno desc
 	</select>
 	<select id="readview" resultType="com.maker.domain.MovieVO">
 		select * from movie where m_title = #{m_title}
+	</select>
+	<select id="findStar" resultType="float">
+		select m_star from movie where mno = #{mno}
 	</select>
 	<!-- 평점 개수 확인 -->
 	<select id="countStar" resultType="int">

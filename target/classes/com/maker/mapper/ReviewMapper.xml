@@ -7,7 +7,7 @@
   	select * from movie
   </select>
   <insert id = "insert">
-  	<selectKey keyProperty="mno" order="BEFORE"
+  	<selectKey keyProperty="rno" order="BEFORE"
   		resultType="long">
   		select seq_review.nextval from dual
   	</selectKey>
@@ -32,6 +32,9 @@
 	</select>
 	<select id="readview" resultType="com.maker.domain.ReviewVO">
 		select * from review where mno = #{mno}
+	</select>
+	<select id="sumStar" resultType="float">
+		select NVL(SUM(r_star), 0.0) from review where mno = #{mno}
 	</select>
 	<!-- 총 게시글 갯수 출력 -->
 	<select id="countReview" resultType="int">

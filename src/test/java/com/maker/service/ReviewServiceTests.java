@@ -17,7 +17,9 @@ public class ReviewServiceTests {
 	
 	@Test
 	public void rvReg() {
-		ReviewVO review = new ReviewVO();
+		ReviewVO review = new ReviewVO(
+				"test1", "아이들이 보기 그래요.",
+				3, 8L, 1L);
 		svc.register(review);
 	}
 }

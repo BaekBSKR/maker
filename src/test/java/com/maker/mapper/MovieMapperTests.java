@@ -30,4 +30,8 @@ public class MovieMapperTests {
 	public void cntRv() {
 		System.out.println(mapper.countStar(2L));
 	}
+	@Test
+	public void updateStar() {
+		mapper.updateStar(10, 4L);
+	}
 }

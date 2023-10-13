@@ -24,4 +24,5 @@ public interface ReviewMapper {
 			@Param("mno")Long mno,
 			@Param("start")int start,
 			@Param("end")int end);
+	public float sumStar(Long mno);
 }
