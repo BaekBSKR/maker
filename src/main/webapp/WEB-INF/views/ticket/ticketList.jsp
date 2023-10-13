@@ -65,6 +65,15 @@
 	</section>
 	<section class="section-long">
 		<div class="container">
+			<c:if test="${viewAll[0] == null}">
+				<article class="movie-line-entity">
+					<div class="entity-content">
+						<h4 class="entity-title">
+							<a class="content-link">예매 이력이 없습니다.</a>
+						</h4>
+					</div>
+				</article>
+			</c:if>
 			<c:forEach var="ticket" items="${viewAll}">
 				<article class="movie-line-entity">
 					<div class="entity-poster" data-role="hover-wrap">

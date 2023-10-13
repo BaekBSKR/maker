@@ -30,6 +30,16 @@
 <link href="/resources/css/dot-icons.css" rel="stylesheet"
 	type="text/css">
 <link href="/resources/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+        .stars {
+        	color: #ccc;
+            cursor: pointer;
+            font-size: 50px;
+        }
+        .star.active {
+            color: #ffcc00; /* 활성화된 별의 색상 */
+        }
+</style>
 </head>
 <body class="body">
 	<%@ include file="../includes/header.jsp"%>
@@ -99,6 +109,17 @@
 						<div class="section-head">
 							<h2 class="section-title text-uppercase">리뷰 목록</h2>
 						</div>
+						<c:if test = "${viewReviewAll[0] == null }">
+							<div class="comment-entity">
+							<div class="entity-inner">
+								<div class="entity-content">
+										<div class="entity-content">
+											<h4 class="entity-title">작성된 리뷰가 없습니다.</h4>
+										</div>
+								</div>
+							</div>
+							</div>
+						</c:if>
 						<c:forEach var="review" items="${viewReviewAll}">
 							<div class="comment-entity">
 							<div class="entity-inner">
@@ -106,7 +127,7 @@
 										<div class="entity-content">
 											<h4 class="entity-title">${review.c_nick}</h4>
 											<p class="entity-subtext">${review.r_reg}</p>
-											<p class="entity-subtext">${review.r_star}</p>
+											<p class="entity-subtext" hidden="hidden">${review.r_star}</p>
 											<p class="entity-text">${review.r_comment}</p>
 										</div>
 									
@@ -115,23 +136,14 @@
 									<div class="grid-md row">
 										<div class="col-12 col-sm-auto">
 											<div class="entity-rating">
-												<span class="entity-rating-icon text-theme"><i
-													class="fas fa-star"></i></span> <span
-													class="entity-rating-icon text-theme"><i
-													class="fas fa-star"></i></span> <span
-													class="entity-rating-icon text-theme"><i
-													class="fas fa-star"></i></span> <span
-													class="entity-rating-icon text-theme"><i
-													class="fas fa-star"></i></span> <span
-													class="entity-rating-icon text-theme"><i
-													class="fas fa-star"></i></span> <span
-													class="entity-rating-icon text-theme"><i
-													class="fas fa-star"></i></span> <span
-													class="entity-rating-icon text-theme"><i
-													class="fas fa-star"></i></span> <span class="entity-rating-icon"><i
-													class="fas fa-star"></i></span> <span class="entity-rating-icon"><i
-													class="fas fa-star"></i></span> <span class="entity-rating-icon"><i
-													class="fas fa-star"></i></span>
+												<!-- 별 아이콘들을 동적으로 생성하여 별점 값을 표시합니다. -->
+								                <c:forEach var="i" begin="1" end="${review.r_star}">
+								                    <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
+								                </c:forEach>
+								                <!-- 나머지 빈 별 아이콘들을 표시합니다. -->
+								                <c:forEach var="i" begin="${review.r_star + 1}" end="10">
+								                    <span class="entity-rating-icon"><i class="fas fa-star"></i></span>
+								                </c:forEach>
 											</div>
 										</div>
 									</div>
@@ -189,8 +201,21 @@
 								<div class="col-12">
 									<div class="rating-line">
 										<label>Rating:</label>
-										<input class="form-control" name="r_star" type="number"
-											value=10 />
+										<div class="rating-stars">
+								            <!-- 별점을 표시할 별 아이콘들 -->
+								            <span class="star" data-rating="1">&#9733;</span>
+								            <span class="star" data-rating="2">&#9733;</span>
+								            <span class="star" data-rating="3">&#9733;</span>
+								            <span class="star" data-rating="4">&#9733;</span>
+								            <span class="star" data-rating="5">&#9733;</span>
+								            <span class="star" data-rating="6">&#9733;</span>
+								            <span class="star" data-rating="7">&#9733;</span>
+								            <span class="star" data-rating="8">&#9733;</span>
+								            <span class="star" data-rating="9">&#9733;</span>
+								            <span class="star" data-rating="10">&#9733;</span>
+								        </div>
+										<input class="form-control" name="r_star" id="star-rating"
+											type="number" value=10 hidden="hidden" />
 									</div>
 								</div>
 								<input class="form-control" name="mno" type="number"
@@ -229,6 +254,25 @@
 	<script async defer
 		src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js"></script>
 </body>
+<script>
+const stars = document.querySelectorAll('.star');
+const ratingInput = document.getElementById('star-rating');
 
+stars.forEach(star => {
+    star.addEventListener('click', () => {
+        const ratingValue = parseInt(star.getAttribute('data-rating'));
+        ratingInput.value = ratingValue; // 별점 값을 숨겨진 input 필드에 설정합니다.
 
+        // 별 아이콘들에 대한 시각적인 피드백을 제공할 수 있습니다.
+        stars.forEach(s => {
+            const sRating = parseInt(s.getAttribute('data-rating'));
+            if (sRating <= ratingValue) {
+                s.classList.add('active'); // 선택된 별은 활성화된 상태로 표시됩니다.
+            } else {
+                s.classList.remove('active'); // 선택되지 않은 별은 비활성화 상태로 표시됩니다.
+            }
+        });
+    });
+});
+</script>
 </html>
