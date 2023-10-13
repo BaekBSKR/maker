@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maker.mapper.MovieMapper">
+  <select id="selectMovieList" resultType="com.maker.domain.MovieVO">
+  	select * from movie
+  </select>
+  <insert id = "insert">
+  	<selectKey keyProperty="mno" order="BEFORE"
+  		resultType="long">
+  		select seq_movie.nextval from dual
+  	</selectKey>
+  	insert into movie(mno, m_title, m_comment, m_direct, m_char, m_open, m_img)
+	values(#{mno}, #{m_title}, #{m_comment},
+		#{m_direct}, #{m_char}, #{m_open}, #{m_img})
+	</insert>
+	<delete id="delete">
+		delete from movie where mno = #{mno}
+	</delete>
+	<select id="read" resultType="com.maker.domain.MovieVO">
+		select * from movie where mTitle = #{mTitle}
+	</select>
+	<update id="update">
+		update movie set m_time = #{m_time} where m_title = #{m_title}
+	</update>
+	<select id="findByTitle" resultType="int">
+		select count(*) from movie where m_title = #{m_title}
+	</select>
+	<select id="findMnoByTitle" resultType="int">
+		select mno from movie where m_title = #{m_title}
+	</select>
+	<select id="getList" resultType="com.maker.domain.MovieVO">
+		select * from movie where m_time > 0
+	</select>
+	<select id="getMovieTimeByTitle" resultType="String">
+		select m_time from movie where m_title = #{m_title}
+	</select>
+	<select id="getview" resultType="com.maker.domain.MovieVO">
+		select * from movie where rownum between 0 and 6 order by m_star
+	</select>
+	<select id="lastview" resultType="com.maker.domain.MovieVO">
+		select * from movie where rownum between 0 and 3 order by mno desc
+	</select>
+	<select id="readview" resultType="com.maker.domain.MovieVO">
+		select * from movie where m_title = #{m_title}
+	</select>
+	<!-- 평점 확인 -->
+	<select id="countStar">
+		select count(*) from movie where mno=#{mno}
+	</select>
+	
+	<!-- 평점 변경 -->
+	<update id="updateStar">
+		update movie set m_star = #{m_star} where mno = #{mno}
+	</update>
+	<!-- 총 게시글 갯수 출력 -->
+	<select id="countBoard" resultType="int">
+		select count(*) from movie
+	</select>
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectBoard" resultType="com.maker.domain.MovieVO">
+		select * from (
+			select rownum rn, A.* from (
+						select * 
+						from movie 
+						order by mno 
+						) A
+					)
+		where rn between #{start} and #{end}
+	</select>
+	
+</mapper>

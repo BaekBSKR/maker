@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maker.mapper.ReviewMapper">
+  <select id="selectMovieList" resultType="com.maker.domain.ReviewVO">
+  	select * from movie
+  </select>
+  <insert id = "insert">
+  	<selectKey keyProperty="mno" order="BEFORE"
+  		resultType="long">
+  		select seq_review.nextval from dual
+  	</selectKey>
+  	insert into review(rno, c_nick, r_comment, r_star, mno, cno)
+	values(#{rno}, #{c_nick}, #{r_comment},
+		#{r_star}, #{mno}, #{cno})
+	</insert>
+	<delete id="delete">
+		delete from review where mno = #{mno}
+	</delete>
+	<select id="read" resultType="com.maker.domain.ReviewVO">
+		select * from review where mTitle = #{mTitle}
+	</select>
+	<update id="update">
+		update review set m_time = #{m_time} where m_title = #{m_title}
+	</update>
+	<select id="findByTitle" resultType="int">
+		select count(*) from review where m_title = #{m_title}
+	</select>
+	<select id="findMnoByTitle" resultType="int">
+		select mno from review where m_title = #{m_title}
+	</select>
+	<select id="getList" resultType="com.maker.domain.ReviewVO">
+		select * from review where m_time > 0
+	</select>
+	<select id="getMovieTimeByTitle" resultType="String">
+		select m_time from review where m_title = #{m_title}
+	</select>
+	<select id="getview" resultType="com.maker.domain.ReviewVO">
+		select * from review where rownum between 0 and 10 order by mno
+	</select>
+	<select id="lastview" resultType="com.maker.domain.ReviewVO">
+		select * from review where rownum between 0 and 3 order by mno desc
+	</select>
+	<select id="readview" resultType="com.maker.domain.ReviewVO">
+		select * from review where m_title = #{m_title}
+	</select>
+	<!-- 총 게시글 갯수 출력 -->
+	<select id="countBoard" resultType="int">
+		select count(*) from review where mno = #{mno}
+	</select>
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectBoard" resultType="com.maker.domain.ReviewVO">
+		select * from (
+			select rownum rn, A.* from (
+						select * 
+						from review 
+						where mno = ${mno}
+						) A
+					)
+		where rn between #{start} and #{end}
+	</select>
+</mapper>
