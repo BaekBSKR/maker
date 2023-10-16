@@ -32,6 +32,29 @@
 <link href="/resources/css/dot-icons.css" rel="stylesheet"
 	type="text/css">
 <link href="/resources/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+.paging {
+	display: block;
+	padding-left: 40%;
+}
+
+.paging a {
+	font-weight: bold;
+	font-size: 20px;
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.movie-line-entity {
+	border-radius: 10px;
+}
+
+.embed-responsive-item {
+	border-radius: 10px;
+}
+</style>
 </head>
 <body class="body">
 	<%@ include file="../includes/header.jsp"%>
@@ -67,20 +90,50 @@
 								<div class="info info-short">
 									<span class="text-theme info-icon"><i
 										class="fas fa-star"></i></span> <span class="info-text">${movie.m_star}</span>
-									<span class="info-rest">/10</span>
+									<span class="info-rest">/10</span> (${movie.count})
 								</div>
-								<div class="info info-short">
-									<span class="text-theme info-icon"><i
-										class="fas fa-clock"></i></span> <span class="info-text">${movie.m_time}</span>
-									<span class="info-rest">&nbsp;min</span>
-								</div>
+						<c:if test="${movie.m_time == 1}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">10:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 2}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">12:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 3}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">14:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 4}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">16:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 5}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">18:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
 							</div>
 						</div>
 						<p class="text-short entity-text">${movie.m_comment}</p>
 					</div>
 				</article>
 			</c:forEach>
-			<div style="display: block; text-align: center;">
+			<div class="paging">
 				<c:if test="${paging.startPage != 1}">
 					<a
 						href="/movie/movielist?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}">&lt;</a>
@@ -89,7 +142,7 @@
 					var="p">
 					<c:choose>
 						<c:when test="${p == paging.nowPage}">
-							<b>${p}</b>
+							<b><a>${p}</a></b>
 						</c:when>
 						<c:when test="${p != paging.nowPage}">
 							<a

@@ -23,13 +23,16 @@ public class NoticeServiceTests {
 	// 공지사항 등록 테스트
 	@Test
 	public void noticeEnroll() {
-		NoticeVO notice = new NoticeVO();
+		for(int i = 1;i < 211; i ++) {
+			NoticeVO notice = new NoticeVO();
+			
+			notice.setN_title("공지" + i);
+			notice.setN_comment(i+"일 부로...");
+			notice.setCno(i%3+1);
+			
+			noticeService.noticeEnroll(notice);
+		}
 		
-		notice.setN_title("공지3");
-		notice.setN_comment("02일 부로...");
-		notice.setCno(3);
-		
-		noticeService.noticeEnroll(notice);
 		
 	}
 	

@@ -37,13 +37,13 @@
 		select m_time from movie where m_title = #{m_title}
 	</select>
 	<select id="getview" resultType="com.maker.domain.MovieVO">
-		select * from movie where rownum between 0 and 10 order by m_star desc
+		select m.*, (select count(*) from review r where r.mno = m.mno) as count from movie m where rownum between 0 and 6 order by m_star desc
 	</select>
 	<select id="lastview" resultType="com.maker.domain.MovieVO">
 		select * from movie where rownum between 0 and 3 order by mno desc
 	</select>
 	<select id="readview" resultType="com.maker.domain.MovieVO">
-		select * from movie where m_title = #{m_title}
+		select m.*, (select count(*) from review r where r.mno = m.mno) as count from movie m where m_title = #{m_title}
 	</select>
 	<select id="findStar" resultType="float">
 		select m_star from movie where mno = #{mno}
@@ -65,8 +65,7 @@
 	<select id="selectBoard" resultType="com.maker.domain.MovieVO">
 		select * from (
 			select rownum rn, A.* from (
-						select * 
-						from movie 
+						select m.*, (select count(*) from review r where r.mno = m.mno) as count from movie m
 						order by mno 
 						) A
 					)

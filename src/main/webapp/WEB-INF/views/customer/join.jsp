@@ -16,62 +16,49 @@
 <body>
 <%@ include file="../includes/header.jsp"%>
 <div class="wrapper">
-	<form id="join_form" method="post">
-	<div class="wrap">
-			<div class="subjecet">
-				<span>회원가입</span>
-			</div>
-			
-			<div class="id_wrap">
-				<div class="id_name">아이디
-					<input type="button" id="id_confirm" value="아이디 중복확인">
+		<div class="input-form col-md-12 mx-auto">
+			<form id="join_form" method="post">
+				<div class="wrap">
+					<h2 class="mb-3">회원가입</h2>
+					<hr>
+					<div class="id_wrap">
+						<div class="id_name">
+							아이디 <input type="button" id="id_confirm" value="아이디 중복확인">
+						</div>
+						<input type="text" class="id_input" name="c_id">
+					</div>
+
+					<div class="pw_wrap">
+						<div class="pw_name">비밀번호</div>
+						<input type="password" class="pw_input" name="c_pwd">
+					</div>
+
+					<div class="pwck_wrap">
+						<div class="pwck_name">비밀번호 확인</div>
+						<input type="password" class="pwck_input" name="c_pwdCk">
+					</div>
+
+					<div class="nick_wrap">
+						<div class="nick_name">닉네임</div>
+						<input type="text" class="nick_input" name="c_nick">
+					</div>
+
+					<div class="mail_wrap">
+						<div class="mail_name">이메일</div>
+						<input type="text" class="mail_input" name="c_mail">
+					</div>
+
+					<div class="birth_wrap">
+						<div class="birth_name">생년월일</div>
+						<input type="text" class="birth_input" name="c_birth">
+					</div>
+					<div class="join_button_wrap">
+						<input type="button" class="join_button" value="가입하기">
+					</div>
 				</div>
-				<div class="id_input_box">
-					<input type="text" class="id_input" name="c_id">
-				</div>
-			</div>
-			
-			<div class="pw_wrap">
-				<div class="pw_name">비밀번호</div>
-				<div class="pw_input_box">
-					<input type="password" class="pw_input" name="c_pwd">
-				</div>
-			</div>
-			
-			<div class="pwck_wrap">
-				<div class="pwck_name">비밀번호 확인</div>
-				<div class="pwck_input_box">
-					<input type="password" class="pwck_input" name="c_pwdCk">
-				</div>
-			</div>
-			
-			<div class="nick_wrap">
-				<div class="nick_name">닉네임</div>
-				<div class="nick_input_box">
-					<input type="text" class="nick_input" name="c_nick">
-				</div>
-			</div>
-			
-			<div class="mail_wrap">
-				<div class="mail_name">이메일</div> 
-				<div class="mail_input_box">
-					<input type="text" class="mail_input" name="c_mail">
-				</div>
-			</div>
-			
-			<div class="birth_wrap">
-				<div class="birth_name">생년월일</div> 
-				<div class="birth_input_box">
-					<input type="text" class="birth_input" name="c_birth">
-				</div>
-			</div>
-			
-			<div class="join_button_wrap">
-				<input type="button" class="join_button" value="가입하기">
-			</div>
+			</form>
 		</div>
-	</form>
-</div>
+	</div>
 
 <script>
 	$(document).ready(function(){

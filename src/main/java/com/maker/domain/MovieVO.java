@@ -14,6 +14,8 @@ public class MovieVO {
 	private String m_img;
 	private String m_time;
 	
+	private Long count;
+	
 	public MovieVO() {}
 	public MovieVO(String m_title, String m_time) {
 		this.m_title = m_title;

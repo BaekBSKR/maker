@@ -81,13 +81,43 @@
 											<div class="info info-short">
 												<span class="text-theme info-icon"><i
 													class="fas fa-star"></i></span> <span class="info-text">${movie.m_star}</span>
-												<span class="info-rest">/10</span>
+												<span class="info-rest">/10</span> (${movie.count})
 											</div>
-											<div class="info info-short">
-												<span class="text-theme info-icon"><i
-													class="fas fa-clock"></i></span> <span class="info-text">${movie.m_time}</span>
-												<span class="info-rest">min</span>
-											</div>
+											<c:if test="${movie.m_time == 1}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">10:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 2}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">12:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 3}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">14:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 4}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">16:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 5}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">18:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
 										</div>
 									</div>
 									<ul class="entity-list">
@@ -178,6 +208,7 @@
 					</div>
 					<a class="scroll-top disabled" href="#"><i class="fas fa-angle-up"
 				aria-hidden="true"></i></a>
+					<br>
 					<div class="section-line">
 						<div class="section-head">
 							<h2 class="section-title text-uppercase">리뷰 작성</h2>
@@ -203,16 +234,16 @@
 										<label>Rating:</label>
 										<div class="rating-stars">
 								            <!-- 별점을 표시할 별 아이콘들 -->
-								            <span class="star" data-rating="1">&#9733;</span>
-								            <span class="star" data-rating="2">&#9733;</span>
-								            <span class="star" data-rating="3">&#9733;</span>
-								            <span class="star" data-rating="4">&#9733;</span>
-								            <span class="star" data-rating="5">&#9733;</span>
-								            <span class="star" data-rating="6">&#9733;</span>
-								            <span class="star" data-rating="7">&#9733;</span>
-								            <span class="star" data-rating="8">&#9733;</span>
-								            <span class="star" data-rating="9">&#9733;</span>
-								            <span class="star" data-rating="10">&#9733;</span>
+								            <span class="star active" data-rating="1">&#9733;</span>
+								            <span class="star active" data-rating="2">&#9733;</span>
+								            <span class="star active" data-rating="3">&#9733;</span>
+								            <span class="star active" data-rating="4">&#9733;</span>
+								            <span class="star active" data-rating="5">&#9733;</span>
+								            <span class="star active" data-rating="6">&#9733;</span>
+								            <span class="star active" data-rating="7">&#9733;</span>
+								            <span class="star active" data-rating="8">&#9733;</span>
+								            <span class="star active" data-rating="9">&#9733;</span>
+								            <span class="star active" data-rating="10">&#9733;</span>
 								        </div>
 										<input class="form-control" name="r_star" id="star-rating"
 											type="number" value=10 hidden="hidden" />

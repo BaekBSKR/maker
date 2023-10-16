@@ -46,6 +46,25 @@
 	padding: 8px 16px;
 	text-decoration: none;
 }
+.movie-line-entity {
+	border-radius: 10px;
+}
+
+.embed-responsive-item {
+	border-radius: 10px;
+}
+
+.info-short {
+	font-size: 20px;
+}
+
+.badge {
+	top: 0.5rem;
+	left: 0.5rem;
+	position: absolute;
+	background-color: orange;
+	color: white;
+}
 </style>
 </head>
 <body>
@@ -54,11 +73,11 @@
 		<div class="d-background bg-black-80"></div>
 		<div class="top-block top-inner container">
 			<div class="top-block-content">
-				<h1 class="section-title">예매 리스트</h1>
+				<h1 class="section-title">예매 이력</h1>
 				<div class="page-breadcrumbs">
 					<a class="content-link" href="/">홈</a> <span
 						class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
-					<a class="content-link" href="movielist">예매 리스트</a>
+					<a class="content-link" href="movielist">예매 이력</a>
 				</div>
 			</div>
 		</div>
@@ -82,9 +101,11 @@
 						</div>
 					</div>
 					<div class="entity-content">
-						<h4 class="entity-title">
-							<a class="content-link">${ticket.m_title}</a>
-						</h4>
+						<h2 class="entity-title">
+							<a class="content-link"
+								href="/movie/movieinfo?m_title=${ticket.m_title}">${ticket.m_title}</a>
+						</h2>
+						<br>
 						<div class="entity-info">
 							<div class="info-lines">
 								<div class="info info-short">

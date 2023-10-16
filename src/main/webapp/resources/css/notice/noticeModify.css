@@ -1,121 +1,156 @@
 @charset "UTF-8";
-*{
+
+* {
 	margin: 0;
-	padding:0;
+	padding: 0;
 }
-a{
+
+a {
 	text-decoration: none;
 }
-a:link {color: black;}
-a:visited {color: black;}
-a:active {color: black;}
-a:hover {color: black;}
-ul{
-    list-style: none;
+
+a:link {
+	color: black;
+}
+
+a:visited {
+	color: black;
+}
+
+a:active {
+	color: black;
+}
+
+a:hover {
+	color: black;
+}
+
+ul {
+	list-style: none;
 }
 /* 화면 전체 렙 */
-.wrapper{
+.wrapper {
 	width: 100%;
 }
 /* content 랩 */
-.wrap{
-	width : 1080px;
+.wrap {
+	width: 1080px;
 	margin: auto;
 }
 
 /* 관리자페이지 컨텐츠 영역 */
-.notice_content_wrap{
-    width: 80%;
-    float:left;
-    min-height:700px;
+.notice_content_wrap {
+	width: 80%;
+	min-height: 700px;
+	margin-left: 230px;
+	padding: 32px;
 }
 /* 관리자 컨텐츠 제목 영역 */
-.notice_content_subject{	
-    font-size: 40px;
-    font-weight: bolder;
-    padding-left: 15px;
-    background-color: #6AAFE6;
-    height: 80px;
-    line-height: 80px;
-    color: white;	
+.notice_content_subject {
+	font-size: 40px;
+	font-weight: bolder;
+	padding-left: 15px;
+	background-color: #6AAFE6;
+	height: 80px;
+	line-height: 80px;
+	color: white;
 }
 /* 관리자 컨텐츠 메인 영역 */
-.form_section{
+.form_section {
 	width: 95%;
-    margin-left: 2%;
-    margin-top: 20px;
-    border: 1px solid #dbdde2;
-    background-color: #efefef;	
+	margin-left: 2%;
+	margin-top: 20px;
+	border: 1px solid #dbdde2;
+	background-color: #efefef;
 }
-.form_section_title{
-	padding: 20px 35px;	
-}
-.form_section_title label{
-	display: block;
-    font-size: 20px;
-    font-weight: 800;
-}
-.form_section_content{
+
+.form_section_title {
 	padding: 20px 35px;
-    border-top: 1px solid #dbdde2;	
 }
-.form_section_content input{
+
+.form_section_title label {
+	display: block;
+	font-size: 20px;
+	font-weight: 800;
+}
+
+.form_section_content {
+	padding: 20px 35px;
+	border-top: 1px solid #dbdde2;
+}
+
+.form_section_content input {
 	width: 98%;
-    height: 25px;
-    font-size: 20px;
-    padding: 5px 1%;
+	height: 25px;
+	font-size: 20px;
+	padding: 5px 1%;
+	border-radius: 5px;
 }
-.form_section_content textarea{
-    width: 98%;
-    height: 170px;
-    font-size: 20px;	
-}
-.form_section_content select{
+
+.form_section_content textarea {
 	width: 98%;
-    height: 35px;
-    font-size: 20px;
-    text-align-last: center;
+	height: 170px;
+	font-size: 20px;
+	border-radius: 5px;
 }
-.input_block{
-	background-color:#f9f9f9;	
+
+.form_section_content select {
+	width: 98%;
+	height: 35px;
+	font-size: 20px;
+	text-align-last: center;
+}
+
+.input_block {
+	background-color: #f9f9f9;
 }
 
 /* 입력란 공란 경고 태그 */
-.form_section_content span{	
+.form_section_content span {
 	display: none;
-    padding-top: 10px;
-    text-align: center;
-    color: #e05757;
-    font-weight: 300;    
+	padding-top: 10px;
+	text-align: center;
+	color: #e05757;
+	font-weight: 300;
 }
 
-
-
 /* 버튼 영역 */
-.btn_section{
+.btn_section {
 	text-align: center;
 	margin: 80px 0;
 }
-.btn{
-    min-width: 180px;
-    padding: 4px 30px;
-    font-size: 25px;
-    font-weight: 600;
-    line-height: 40px;
-}
-.modify_btn{
-	background-color: #b8d3e8;
-	margin-left:15px;
+
+.cancle_btn {
+	min-width: 180px;
+	padding: 4px 30px;
+	font-size: 25px;
+	font-weight: 600;
+	line-height: 40px;
+	background-color: red;
+	margin-left: 15px;
+	color: white;
 }
 
-.delete_btn{
+.modify_btn {
+	min-width: 180px;
+	padding: 4px 30px;
+	font-size: 25px;
+	font-weight: 600;
+	line-height: 40px;
+	background-color: green;
+	margin-left: 15px;
+	color: white;
+}
+
+.delete_btn {
 	background-color: #efcdcd;
 }
-.delete_btn:hover{
-	background-color : #e4a7a7;
+
+.delete_btn:hover {
+	background-color: #e4a7a7;
 }
 
 /* float 속성 해제 */
-.clearfix{
+.clearfix {
 	clear: both;
 }

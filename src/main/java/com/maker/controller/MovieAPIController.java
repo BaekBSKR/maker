@@ -26,7 +26,7 @@ public class MovieAPIController {
 	public void getMovie() {
 		System.out.println("json 호출 시작");
     	String movieInfoUrl = "http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/"
-    		+ "search_json2.jsp?collection=kmdb_new2&detail=N&listCount=100"
+    		+ "search_json2.jsp?collection=kmdb_new2&detail=N&listCount=1000"
     		+ "&ServiceKey=A0D2TLUK94B6N6478AKI";
 
 	    URL url = null;

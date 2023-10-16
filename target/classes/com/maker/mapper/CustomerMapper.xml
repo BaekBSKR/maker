@@ -46,7 +46,7 @@
              
     ]]>         
           <if test="keyword != null">
-              cno like '%'||#{keyword}||'%' and
+              c_id like '%'||#{keyword}||'%' and
           </if>
             
     <![CDATA[        

@@ -18,54 +18,58 @@
 <body>
 	<%@ include file="../includes/header.jsp"%>
 	<div class="notice_content_wrap">
-        <div class="notice_content_subject"><span>공지사항 수정</span></div>
-        	<div class="notice_content_main">
-        		<form id="modifyForm" action="/notice/noticeModify" method="post">
-	            	<div class="form_section">
-	                	<div class="form_section_title">
-	                    	<label>제목</label>
-	                   	</div>
-	                   	<div class="form_section_content">
-	                   		<input type="text" class="input_block" name="n_title" id="n_title" value="${noticeInfo.n_title}">
-	                   	</div>
-	               	</div> 
-	               	                   
-	                <div class="form_section">
-	                	<div class="form_section_title">
-	                   		<label>내용</label>
-	                   	</div>
-	                   	
-	                   	<div class="form_section_content">
-	                   		<textarea class="input_block" name="n_comment" id="n_comment">${noticeInfo.n_comment}</textarea>
-	                   	</div>
-	                </div>
-	                
-	                <div class="form_section_title">
-	                	<label>고객번호</label>
-	                </div>
-	                
-	                <div class="form_section_content">
-	                	<input class="input_block" name="cno" readonly="readonly" value="<c:out value='${noticeInfo.cno}'></c:out>">	
-	                </div>
-	                
-	                <div class="form_section">
-	                	<div class="form_section_title">
-	                   		<label>등록 날짜</label>
-	                   	</div>
-	                   	
-	                   	<div class="form_section_content">
-	                   		<input class="input_block" type="text" readonly="readonly" value="<fmt:formatDate value="${noticeInfo.n_reg}" pattern="yyyy-MM-dd"/>">
-	                   	</div>
-	               </div>
-	               
-	               <input type="hidden" name='nno' value="${noticeInfo.nno}">
-	               
-	              	<div class="btn_section">
-	              		<button id="cancelBtn" class="btn">취 소</button>
-		                <button id="modifyBtn" class="btn modify_btn">수 정</button>
-		    		</div> 
-	    		</form>
-			</div>                    
+		<div class="input-form col-md-10 mx-auto">
+			<div class="notice_content_main">
+				<form id="modifyForm" action="/notice/noticeModify" method="post">
+					<div class="form_section">
+						<div class="form_section_title">
+							<label>제목</label>
+						</div>
+						<div class="form_section_content">
+							<input type="text" class="input_block" name="n_title"
+								id="n_title" value="${noticeInfo.n_title}">
+						</div>
+					</div>
+
+					<div class="form_section">
+						<div class="form_section_title">
+							<label>내용</label>
+						</div>
+
+						<div class="form_section_content">
+							<textarea class="input_block" name="n_comment" id="n_comment">${noticeInfo.n_comment}</textarea>
+						</div>
+					</div>
+					<div class="form_section">
+						<div class="form_section_title">
+							<label>고객번호</label>
+						</div>
+
+						<div class="form_section_content">
+							<input class="input_block" name="cno" readonly="readonly"
+								value="<c:out value='${noticeInfo.cno}'></c:out>">
+						</div>
+					</div>
+					<div class="form_section">
+						<div class="form_section_title">
+							<label>등록 날짜</label>
+						</div>
+
+						<div class="form_section_content">
+							<input class="input_block" type="text" readonly="readonly"
+								value="<fmt:formatDate value="${noticeInfo.n_reg}" pattern="yyyy-MM-dd"/>">
+						</div>
+					</div>
+
+					<input type="hidden" name='nno' value="${noticeInfo.nno}">
+
+					<div class="btn_section">
+						<button id="cancelBtn" class="btn cancle_btn">취 소</button>
+						<button id="modifyBtn" class="btn modify_btn">수 정</button>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
                 
 	<form id="moveForm" method="get">

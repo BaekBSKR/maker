@@ -30,5 +30,4 @@ public interface MovieMapper {
 	// 페이징 처리 게시글 조회
 	public List<MovieVO> selectBoard(PagingVO vo);
 	
-	
 }

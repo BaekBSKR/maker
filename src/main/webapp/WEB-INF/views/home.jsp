@@ -62,13 +62,43 @@
 												<div class="info info-short">
 													<span class="text-theme info-icon"><i
 														class="fas fa-star"></i></span> <span class="info-text">${movie.m_star}</span>
-													<span class="info-rest">/10</span>
+													<span class="info-rest">/10</span> (${movie.count})
 												</div>
-												<div class="info info-short">
-													<span class="text-theme info-icon"><i
-														class="fas fa-clock"></i></span> <span class="info-text">${movie.m_time}</span>
-													<span class="info-rest">&nbsp;min</span>
-												</div>
+												<c:if test="${movie.m_time == 1}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">10:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 2}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">12:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 3}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">14:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 4}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">16:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 5}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">18:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
 											</div>
 										</div>
 									</div>
@@ -114,13 +144,43 @@
 								<div class="info info-short">
 									<span class="text-theme info-icon"><i
 										class="fas fa-star"></i></span> <span class="info-text">${movie.m_star}</span>
-									<span class="info-rest">/10</span>
+									<span class="info-rest">/10</span> (${movie.count})
 								</div>
-								<div class="info info-short">
-									<span class="text-theme info-icon"><i
-										class="fas fa-clock"></i></span> <span class="info-text">${movie.m_time}</span>
-									<span class="info-rest">&nbsp;min</span>
-								</div>
+								<c:if test="${movie.m_time == 1}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">10:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 2}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">12:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 3}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">14:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 4}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">16:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
+												<c:if test="${movie.m_time == 5}">
+													<div class="info info-short">
+														<span class="text-theme info-icon"><i
+															class="fas fa-clock"></i></span> <span class="info-text">18:00</span>
+														<span class="info-rest">&nbsp;상영</span>
+													</div>
+												</c:if>
 							</div>
 						</div>
 						<p class="text-short entity-text">${movie.m_comment}</p>

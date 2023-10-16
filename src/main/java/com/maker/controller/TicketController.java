@@ -1,22 +1,16 @@
 package com.maker.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -60,13 +54,10 @@ public class TicketController {
         }
         vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
         
-        //cno @Param 처리 추가
-        
         List<TicketVO> tickets = tSvc.getList(cno);
 
         model.addAttribute("paging", vo);
         model.addAttribute("viewAll", tSvc.selectBoard(vo, cno));
-//        model.addAttribute("movies", movies);
         model.addAttribute("tickets", tickets);
     }
 
@@ -83,7 +74,6 @@ public class TicketController {
     public String ticketChk(@RequestParam String t_time, 
     		@RequestParam int sno,
     		@RequestParam String m_title) {
-    	
     	return tSvc.isExistsTicketInfo(t_time, sno, m_title);
     }
     
@@ -93,8 +83,6 @@ public class TicketController {
     public ResponseEntity<List<Integer>>  seatChk(
     		@RequestParam String t_time, 
     		@RequestParam String m_title) {
-//    	String t_time = requestData.get("t_time");
-//    	String m_title = requestData.get("m_title");
     	System.out.println(t_time);
         List<Integer> reservedSeats = tSvc.getReservedSeats(t_time, m_title);
         System.out.println(reservedSeats.toString());
@@ -113,10 +101,6 @@ public class TicketController {
             @RequestParam("cno") int cno,
             @RequestParam("t_time") String t_time,
             @RequestParam("m_title") String m_title) {
-//    	System.out.println(t_time);
-//        System.out.println(sno);
-//        System.out.println(m_title);
-//        System.out.println(Long.valueOf(cno));
         
         tSvc.register(new TicketVO(
                 t_time, 10000, sno,
@@ -126,5 +110,4 @@ public class TicketController {
         System.out.println("예약완료");
         return "redirect:/movie/movielist";
     }
-    
 }

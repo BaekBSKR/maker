@@ -124,9 +124,9 @@ public class CustomerController {
 	 	List list = customerService.customerGetList(cri);
 	 		
 	 	if(!list.isEmpty()) {
-	 		model.addAttribute("list",list);	// 작가 존재 경우
+	 		model.addAttribute("list",list);	// 게시물 존재 경우
 	 	} else {
-	 		model.addAttribute("listCheck", "empty");	// 작가 존재하지 않을 경우
+	 		model.addAttribute("listCheck", "empty");	// 게시물 존재하지 않을 경우
 	 	}
 	 		
 	 	// 페이지 이동 인터페이스 데이터 
