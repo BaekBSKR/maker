@@ -52,7 +52,7 @@
 					<div class="page-breadcrumbs">
 						<a class="content-link" href="/">홈</a> <span
 							class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
-						<a class="content-link" href="movielist">영화 리스트</a> <span
+						<a class="content-link" href="movielist">영화 목록</a> <span
 							class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
 						<a class="content-link"
 							href="/movie/movieinfo?m_title=${movie.m_title}">영화</a>

@@ -41,6 +41,7 @@
 							<td class="th_column_2">제목</td>
 							<td class="th_column_3">고객 번호</td>
 							<td class="th_column_4">등록 날짜</td>
+							<td class="th_column_5">수정 날짜</td>
 						</tr>
 					</thead>
 
@@ -53,6 +54,8 @@
 							<td><c:out value="${list.cno}"></c:out></td>
 							<td><fmt:formatDate value="${list.n_reg}"
 									pattern="yyyy-MM-dd HH:mm" /></td>
+							<td><fmt:formatDate value="${list.n_update}" pattern="yyyy-MM-dd HH:mm"/></td>
+
 						</tr>
 					</c:forEach>
 				</table>

@@ -66,7 +66,7 @@
 				<div class="navbar-collapse">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link"
-							href="/movie/movielist">영화 리스트</a></li>
+							href="/movie/movielist">영화 목록</a></li>
 						<c:if test="${customer == null}">
 						</c:if>
 						<c:if test="${customer != null}">
@@ -128,7 +128,7 @@
 				url : "/customer/logout.do",
 				success : function(data) {
 					alert("로그아웃 되었습니다.");
-					document.location.reload();
+					location.replace("/customer/login");
 				}
 			});
 		});
